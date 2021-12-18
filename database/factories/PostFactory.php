@@ -23,7 +23,7 @@ class PostFactory extends Factory
             "slug" => Str::slug($title),
             "image800x549" => "assets/storage/uploads/posts/800x549/image-1639738263IMG_6732.JPG",
             "image800x1166" => "assets/storage/uploads/posts/800x1166/image-1639738263IMG_6732.JPG",
-            "content" => $this->faker->paragraph(2, 7),
+            "content" => $this->faker->text(),
             "published_at" => now(),
             "deleted_by" => "", //my deleted by cant be null
             "status" => 1,
