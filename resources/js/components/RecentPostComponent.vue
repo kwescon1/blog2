@@ -42,17 +42,19 @@
         </div>
       </div>
     </div>
-    <!-- <div class="row text-center pt-5 border-top"> -->
-    <div class="col-md-12">
-      <!-- <div class="custom-pagination"> -->
-      <jw-pagination
-        :items="posts"
-        @changePage="onChangePage"
-        :pageSize="6"
-      ></jw-pagination>
-      <!-- </div> -->
+    <div class="row text-center pt-5 border-top">
+      <div class="col-md-12">
+        <div class="">
+          <jw-pagination
+            :items="posts"
+            @changePage="onChangePage"
+            :pageSize="6"
+            :disableDefaultStyles="true"
+            :labels="customLabels"
+          ></jw-pagination>
+        </div>
+      </div>
     </div>
-    <!-- </div> -->
   </div>
 </template>
 
@@ -86,6 +88,13 @@ export default {
     return {
       pageOfItems: [],
       posts: [],
+
+      customLabels: {
+        first: "<<",
+        last: ">>",
+        previous: "<",
+        next: ">",
+      },
     };
   },
 };
