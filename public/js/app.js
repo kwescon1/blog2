@@ -2468,6 +2468,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   created: function created() {
     console.log("Component mounted.");
@@ -2513,7 +2515,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   data: function data() {
     return {
       pageOfItems: [],
-      posts: []
+      posts: [],
+      customLabels: {
+        first: "<<",
+        last: ">>",
+        previous: "<",
+        next: ">"
+      }
     };
   }
 });
@@ -4144,17 +4152,26 @@ var render = function () {
       0
     ),
     _vm._v(" "),
-    _c(
-      "div",
-      { staticClass: "col-md-12" },
-      [
-        _c("jw-pagination", {
-          attrs: { items: _vm.posts, pageSize: 6 },
-          on: { changePage: _vm.onChangePage },
-        }),
-      ],
-      1
-    ),
+    _c("div", { staticClass: "row text-center pt-5 border-top" }, [
+      _c("div", { staticClass: "col-md-12" }, [
+        _c(
+          "div",
+          {},
+          [
+            _c("jw-pagination", {
+              attrs: {
+                items: _vm.posts,
+                pageSize: 6,
+                disableDefaultStyles: true,
+                labels: _vm.customLabels,
+              },
+              on: { changePage: _vm.onChangePage },
+            }),
+          ],
+          1
+        ),
+      ]),
+    ]),
   ])
 }
 var staticRenderFns = [

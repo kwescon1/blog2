@@ -95,8 +95,8 @@
             </div>
             <div class="row text-center pt-5 border-top">
                 <div class="col-md-12">
-                    <div class="custom-pagination">
-                        <span>{{ $results->links() }}</span>
+                    <div class="">
+                        <span>{{ $results->links('vendor.pagination.bootstrap-4') }}</span>
                     </div>
                 </div>
             </div>
