@@ -7,6 +7,7 @@ use App\Models\Post;
 
 use App\Models\User;
 use App\Models\Roles;
+use App\Models\Comment;
 use App\Models\Category;
 use App\Models\Permissions;
 use Illuminate\Database\Seeder;
@@ -82,7 +83,11 @@ class DatabaseSeeder extends Seeder
                 ])->create()->each(function ($user) use ($category) {
 
                     echo "Creating post \n";
-                    Post::factory()->state(['user_id' => $user->id, 'category_id' => $category->id, 'deleted_by' => $user->id])->count(10)->create()->each(function ($post) {
+                    Post::factory()->state(['user_id' => $user->id, 'category_id' => $category->id, 'deleted_by' => $user->id])->count(200)->create()->each(function ($post) {
+
+                        //creating comments
+                        echo "creating comment";
+                        Comment::factory()->count(10)->state(["post_id" => $post->id])->create();
                         //creating tags
                         Tag::factory()->count(5)->create()->each(function ($tag) use ($post) {
                             echo "inserting into db\n";
