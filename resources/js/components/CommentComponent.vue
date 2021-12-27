@@ -107,7 +107,8 @@ export default {
 
       this.comment_added = true;
 
-      this.form = {};
+      this.form.name = "";
+      this.form.comment = "";
       this.loadComments(this.postId);
     },
 
@@ -134,7 +135,7 @@ export default {
 
   computed: {
     baseUrl: function () {
-      return "http://localhost:8000";
+      return "http://67.207.93.161";
     },
 
     postId: function () {
