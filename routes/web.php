@@ -48,7 +48,7 @@ Route::middleware('auth')->group(function () {
     Route::post('change/{id}/password', [\App\Http\Controllers\UserController::class, 'storePassword'])->name('change.password');
     Route::get('edit/{id}/profile', [\App\Http\Controllers\UserController::class, 'editProfile'])->name('editProfile');
 
-    Route::post('edit/profile', [\App\Http\Controllers\UserController::class, 'storeProfile'])->name('edit.profile');
+    Route::post('edit/{id}/profile', [\App\Http\Controllers\UserController::class, 'storeProfile'])->name('edit.profile');
 
     Route::resource('back-users', \App\Http\Controllers\UserController::class);
 
