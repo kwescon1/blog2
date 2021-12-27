@@ -76,7 +76,7 @@
                                         </span>
                                     </div>
 
-                                    <p>{!! Illuminate\Support\Str::limit($post->content, 200, $end = '....') !!}.</p>
+                                    <!-- <p>{!! Illuminate\Support\Str::limit($post->content, 200, $end = '....') !!}.</p> -->
                                     <p><a href="{{ route('details', $post->slug) }}">Read More</a></p>
                                 </div>
                             </div>

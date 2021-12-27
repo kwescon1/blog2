@@ -25,7 +25,7 @@
             @endif
             <div class="form-layout">
 
-                <form enctype="multipart/form-data" method="POST" action="{{ route('edit.profile') }}">
+                <form enctype="multipart/form-data" method="POST" action="{{ route('edit.profile', auth()->user()->id) }}">
                     @csrf
                     <div class="row mg-b-25">
                         <div class="col-lg-4">

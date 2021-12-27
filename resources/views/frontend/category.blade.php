@@ -35,6 +35,7 @@
     <div class="site-section bg-white">
         <div class="container">
             <div class="row">
+                @if(count($data['posts']) > 0)
                 @foreach ($data['posts'] as $post)
                     <div class="col-lg-4 mb-4">
                         <div class="entry2">
@@ -87,12 +88,15 @@
                                     </span>
                                 </div>
 
-                                <p>{!! Illuminate\Support\Str::limit($post->content, 200, $end = '....') !!}.</p>
+                                <!-- <p>{!! Illuminate\Support\Str::limit($post->content, 200, $end = '....') !!}.</p> -->
                                 <p><a href="{{ route('details', $post->slug) }}">Read More</a></p>
                             </div>
                         </div>
                     </div>
                 @endforeach
+                @else
+                <h3>No available post</h3>
+                @endif
 
             </div>
             <div class="row text-center pt-5 border-top">

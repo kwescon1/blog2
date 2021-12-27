@@ -58,7 +58,13 @@
                                             <td scope="row">{{ $user->id - 1 }}</th>
                                             <td>{{ $user->name }}</td>
                                             <td>{{ $user->username }}</td>
-                                            <td>{{ $user->roles[0]->name }}</td>
+                                            <td>
+                                                @if(count($user->roles) > 0)
+                                                {{ $user->roles[0]->name }}
+                                                @else
+                                                -
+                                                @endif
+                                            </td>
                                             <td>{{ count($user->posts) }}</td>
                                             <td>{{ $user->created_at->diffForHumans() }}</td>
                                             <td>
@@ -113,7 +119,11 @@
                                             <td scope="row">{{ $user->id }}</th>
                                             <td>{{ $user->name }}</td>
                                             <td>{{ $user->username }}</td>
-                                            <td>{{ $user->roles[0]->name }}</td>
+                                            <td>@if(count($user->roles) > 0)
+                                                {{ $user->roles[0]->name }}
+                                                @else
+                                                -
+                                                @endif</td>
                                             <td>{{ count($user->posts) }}</td>
                                             <td>{{ $user->deleted_at->diffForHumans() }}</td>
                                             <td>
@@ -272,7 +282,7 @@
 
                                             @foreach ($roles as $role)
 
-                                                <option @if (session('data') && session('data')['data']->roles[0]->id == $role->id) selected @endif value="{{ $role->id }}">
+                                                <option @if (session('data') && count(session('data')['data']->roles) > 0 && session('data')['data']->roles[0]->id == $role->id) selected @endif value="{{ $role->id }}">
                                                     {{ $role->name }}</option>
                                             @endforeach
 
