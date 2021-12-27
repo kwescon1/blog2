@@ -92,9 +92,12 @@ class UserService extends CoreService implements UserServiceInterface
     public function updateProfile($data): ?Model
     {
 
-        $path = $this->processImage($data['image'], "users", ["665x665"]);
+        if(isset($data['image'])){
+            $path = $this->processImage($data['image'], "users", ["665x665"]);
 
-        $data['image665x665'] = $path[0];
+            $data['image665x665'] = $path[0];
+        }
+        
 
         return $this->userRepository->update(auth()->user()->id, $data);
     }
