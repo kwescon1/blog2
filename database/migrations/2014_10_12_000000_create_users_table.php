@@ -17,10 +17,10 @@ class CreateUsersTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('username')->unique();
-            $table->string('email')->unique()->nullable();
-            $table->string('instagram')->unique()->nullable();
-            $table->string('linkedIn')->unique()->nullable();
-            $table->string('twitter')->unique()->nullable();
+            $table->string('email')->nullable();
+            $table->string('instagram')->nullable();
+            $table->string('linkedIn')->nullable();
+            $table->string('twitter')->nullable();
             $table->string('image665x665')->nullable();
             $table->string('mission')->nullable();
             $table->string('password');
