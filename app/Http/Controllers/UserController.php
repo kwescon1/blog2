@@ -17,7 +17,7 @@ class UserController extends Controller
 
     public function __construct(UserServiceInterface $userService, RoleServiceInterface $roleService)
     {
-        $this->middleware('categories')->except(['show', 'changePassword', 'editProfile']);
+        $this->middleware('categories')->except(['show', 'changePassword', 'editProfile','storeProfile','storePassword']);
 
         $this->userService = $userService;
         $this->roleService = $roleService;
@@ -157,7 +157,7 @@ class UserController extends Controller
         return view('backend.edit-profile', ['user' => $user]);
     }
 
-    public function storeProfile(EditProfileRequest $request)
+    public function storeProfile(EditProfileRequest $request,$id)
     {
 
         $data = $request->validated();
