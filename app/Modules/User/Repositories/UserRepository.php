@@ -16,11 +16,11 @@ class UserRepository extends BaseRepository implements UserRepositoryInterface
 
     public function allUsers(): ?Collection
     {
-        // return $this->model()->all();
+        return $this->model()->where('id','!=',1)->get();
 
-        return $this->model()->whereHas('roles', function ($q) {
-            $q->where('name', '!=', 'Super Admin');
-        })->get();
+        // return $this->model()->whereHas('roles', function ($q) {
+        //     $q->where('name', '!=', 'Super Admin');
+        // })->get();
     }
 
     public function trashedUsers(): ?Collection
