@@ -83,7 +83,7 @@ class DatabaseSeeder extends Seeder
                 ])->create()->each(function ($user) use ($category) {
 
                     echo "Creating post \n";
-                    Post::factory()->state(['user_id' => $user->id, 'category_id' => $category->id, 'deleted_by' => $user->id])->count(200)->create()->each(function ($post) {
+                    Post::factory()->state(['user_id' => $user->id, 'category_id' => $category->id, 'deleted_by' => $user->id])->count(50)->create()->each(function ($post) {
 
                         //creating comments
                         echo "creating comment";
