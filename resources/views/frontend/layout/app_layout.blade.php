@@ -32,7 +32,15 @@
                     <span class="icon-close2 js-menu-toggle"></span>
                 </div>
             </div>
-            <div class="site-mobile-menu-body"></div>
+            <div class="site-mobile-menu-body">
+                <form method="get" action="{{ route('search.post') }}">
+                    <div class="row">
+                        <input name="param" required type="search" class="form-control border-0 bg-light"
+                            placeholder="Search..." />
+                    </div>
+
+                </form>
+            </div>
         </div>
 
         <header class="site-navbar" role="banner">
