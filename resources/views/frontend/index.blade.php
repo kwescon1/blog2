@@ -4,9 +4,9 @@
     Homepage
 @endsection
 
+@section('style')
+<link rel="stylesheet" href="{{ asset('assets/frontend/css/banner.css') }}">@endsection
 @section('content')
-
-
     <div class="site-section bg-light">
         <div class="container">
             <div class="row align-items-stretch retro-layout-2">
@@ -106,8 +106,48 @@
             </div>
         </div>
     </div>
+    {{-- <div class="site-section"> --}}
+    {{-- <div class="container"> --}}
+    {{-- advertisment banner --}}
+    <div class="banner-container">
 
-    <div id="app" class="site-section">
+        <div class="banner">
+            <div class="shoe">
+                <img src="{{ asset('assets/storage/advertisments/shoe.png') }}" alt="">
+            </div>
+            <div class="content">
+                <div class="waviy">
+                    <h2 class="">
+                        <span style="--i:1">S</span>
+                        <span style="--i:2">E</span>
+                        <span style="--i:3">W</span>
+                        <span style="--i:4">L</span>
+                        <span style="--i:5">O</span>
+                        <span style="--i:6">V</span>
+                        <span style="--i:7">E</span>
+                        <span style="--i:8">L</span>
+                        <span style="--i:9">Y</span>
+                        <span style="--i:10">💕</span>
+                    </h2>
+
+                </div>
+
+                <h3 class="animate_link">Thrift Shop</h3>
+                <p>Get your affordable thrift clothes from us</p>
+
+                <div class=""><a href="#" class="btn">Click Here</a></div>
+
+            </div>
+            <div class="women">
+                <img src="{{ asset('assets/storage/advertisments/women.png') }}" alt="">
+            </div>
+        </div>
+
+    </div>
+    {{-- </div> --}}
+    {{-- </div> --}}
+
+    <div id="app" class="site-section bg-light">
         <recent-post-component></recent-post-component>
     </div>
 

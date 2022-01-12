@@ -3,6 +3,8 @@
 @section('title')
     {{ $post->title }}
 @endsection
+@section('style')
+<link rel="stylesheet" href="{{ asset('assets/frontend/css/banner.css') }}">@endsection
 
 @section('content')
 
@@ -123,8 +125,61 @@
                         </div>
                     </div>
                     <!-- END sidebar-box -->
+
                     <div class="sidebar-box">
-                        <h3 class="heading">Recent Posts</h3>
+                        <h4 style="font-size: 2em" class="heading"> Advertisments</h4>
+
+                        {{-- <div style="background-image: url({{ asset('assets/storage/advertisments/sew.jpeg') }});"
+                            class="banner-advert animated tada">
+
+                            <div class="big-text-advert">Sewlovely</div>
+
+
+                            <div>get your nice and affordable thrift clothes from my wife😀</div>
+
+                            <a href="https://www.instagram.com/__sewlovely/">Click here</a>
+                        </div> --}}
+
+                        <div class="banner-container">
+
+                            <div class="banner">
+                                <div class="shoe">
+                                    <img src="{{ asset('assets/storage/advertisments/shoe.png') }}" alt="">
+                                </div>
+                                <div class="content">
+                                    <div class="waviy">
+                                        <h2 class="">
+                                            <span style="--i:1">S</span>
+                                            <span style="--i:2">E</span>
+                                            <span style="--i:3">W</span>
+                                            <span style="--i:4">L</span>
+                                            <span style="--i:5">O</span>
+                                            <span style="--i:6">V</span>
+                                            <span style="--i:7">E</span>
+                                            <span style="--i:8">L</span>
+                                            <span style="--i:9">Y</span>
+                                            <span style="--i:10">💕</span>
+                                        </h2>
+
+                                    </div>
+
+                                    <h3 class="animate_link">Thrift Shop</h3>
+                                    <p>Get your affordable thrift clothes from us</p>
+
+                                    <div class=""><a href="#" class="btn">Click Here</a></div>
+
+                                </div>
+                                <div class="women">
+                                    <img src="{{ asset('assets/storage/advertisments/women.png') }}" alt="">
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- END sidebar-box -->
+
+                    <div class="sidebar-box">
+                        <h4 style="font-size:2em " class="heading"> Recent Posts</h4>
                         <div class="post-entry-sidebar">
                             <ul>
                                 @foreach ($recentPosts as $recentPost)
