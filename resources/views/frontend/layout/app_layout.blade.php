@@ -95,10 +95,9 @@
         <div class="container">
             <div class="row mb-5">
                 <div class="col-md-4">
-                    <h3 class="footer-heading mb-4">About Us</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat reprehenderit magnam
-                        deleniti quasi saepe, consequatur atque sequi delectus dolore veritatis obcaecati quae,
-                        repellat eveniet omnis, voluptatem in. Soluta, eligendi, architecto.</p>
+                    <h4 style="font-size:20px" class="footer-heading mb-4">About Us</h4>
+                    <p>A group of persons from diverse career backgrounds and interest but with a common goal of writing
+                        musings that inform, inspire and entertain readers...</p>
                 </div>
                 <div class="col-md-3 ml-auto">
                     <!-- <h3 class="footer-heading mb-4">Navigation</h3> -->
@@ -120,7 +119,7 @@
 
 
                     <div>
-                        <h3 class="footer-heading mb-4">Connect With Us</h3>
+                        <h4 style="font-size:20px;" class="footer-heading mb-4">Connect With Us</h4>
                         <p>
                             <a href="#"><span class="icon-facebook pt-2 pr-2 pb-2 pl-0"></span></a>
                             <a href="#"><span class="icon-twitter p-2"></span></a>
@@ -137,7 +136,8 @@
 
                         <script>
                             document.write(new Date().getFullYear());
-                        </script> All rights reserved | <a href="{{ route('frontendHome') }}">sweetboynews</a>
+                        </script> All rights reserved | <a
+                            href="{{ route('frontendHome') }}">insydervoice.com</a>
                     </p>
                 </div>
             </div>
