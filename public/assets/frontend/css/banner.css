@@ -1,0 +1,170 @@
+/*Advertisment banner*/
+
+.banner-advert {
+    width: 100%;
+    background-size: cover;
+    font-size: 20px;
+    color: #fff;
+    text-align: center;
+    padding: 40px 15px;
+  
+  }
+  
+  .big-text-advert{
+    font-size: 30px;
+    font-weight: bold;
+    animation-delay: 2s;
+    animation: spinHorizontal 10s linear infinite;
+  }
+
+.banner-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.banner-container .banner{
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(23,22,25,1) 52%, rgba(0,212,255,1) 100%);
+    border-radius: 5px;
+    margin:10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    box-shadow: 0 5px 10px #0005;
+    overflow: hidden;
+}
+
+.banner-container .banner .shoe{
+    flex:1 1 250px;
+    padding:15px;
+    text-align: center;
+}
+
+.banner-container .banner .shoe img{
+    width:80%;
+}
+
+.banner-container .banner .content{
+    flex:1 1 250px;
+    text-align: center;
+    padding:10px;
+    text-transform: uppercase;
+}
+
+.banner-container .banner .content span{
+    color:#eee;
+    font-size: 25px;
+}
+
+.banner-container .banner .content h3{
+    color:#fff;
+    font-size: 40px;
+}
+
+.banner-container .banner .content p{
+    color:#eee;
+    font-size: 20px;
+    padding:10px 0;
+}
+
+.banner-container .banner .content .btn{
+    display: block;
+    height:40px;
+    width:150px;
+    line-height: 40px;
+    background: #fff;
+    color:#d63031;
+    margin:5px auto;
+    text-decoration: none;
+}
+
+.banner-container .banner .women{
+    position: relative;
+    bottom: -33px;
+    padding:10px;
+    flex:1 1 250px;
+}
+
+.banner-container .banner .women img{
+    width:100%;
+}
+
+@media (max-width:768px){
+    .banner-container .banner .women{
+        display: none;
+    }
+}
+
+/* first animation */
+.animate_link {
+    position: relative;
+  }
+  .animate_link a,h3 {
+    position: relative;
+    display: inline-block;
+    font-size: 20px;
+    color: #fff;
+    text-transform: uppercase;
+    animation: flip 2s infinite;
+    animation-delay: calc(.2s * var(--i))
+  }
+  @keyframes flip {
+    0%,80% {
+      transform: rotateY(360deg) 
+    }
+  }
+
+  /* second animation */
+  .waviy {
+    position: relative;
+    -webkit-box-reflect: below -20px linear-gradient(transparent, rgba(0,0,0,.2));
+    font-size: 60px;
+  }
+  .waviy span {
+    font-family: 'Alfa Slab One', cursive;
+    position: relative;
+    display: inline-block;
+    color: #fff;
+    text-transform: uppercase;
+    animation: waviy 1s infinite;
+    animation-delay: calc(.1s * var(--i));
+    
+  }
+  @keyframes waviy {
+    0%,40%,100% {
+      transform: translateY(0)
+    }
+    20% {
+      transform: translateY(-20px)
+    }
+  }
+
+  .animate-charcter
+{
+   text-transform: uppercase;
+  background-image: linear-gradient(
+    -225deg,
+    #231557 0%,
+    #44107a 29%,
+    #ff1361 67%,
+    #fff800 100%
+  );
+  background-size: auto auto;
+  background-clip: border-box;
+  background-size: 200% auto;
+  color: #fff;
+  background-clip: text;
+  text-fill-color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textclip 2s linear infinite;
+  display: inline-block;
+      font-size: 190px;
+}
+
+@keyframes textclip {
+  to {
+    background-position: 200% center;
+  }
+}
