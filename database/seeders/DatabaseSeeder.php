@@ -73,33 +73,33 @@ class DatabaseSeeder extends Seeder
 
             $user->assignRole($role);
 
-            echo "Creating Category \n";
-            Category::factory()->count(5)->create()->each(function ($category) {
-                //create user
-                echo "creating user \n";
-                User::factory()->state([
-                    "name" => "Default Name",
-                    "password" => Hash::make("6767890")
-                ])->create()->each(function ($user) use ($category) {
+            // echo "Creating Category \n";
+            // Category::factory()->count(5)->create()->each(function ($category) {
+            //     //create user
+            //     echo "creating user \n";
+            //     User::factory()->state([
+            //         "name" => "Default Name",
+            //         "password" => Hash::make("6767890")
+            //     ])->create()->each(function ($user) use ($category) {
 
-                    echo "Creating post \n";
-                    Post::factory()->state(['user_id' => $user->id, 'category_id' => $category->id, 'deleted_by' => $user->id])->count(50)->create()->each(function ($post) {
+            //         echo "Creating post \n";
+            //         Post::factory()->state(['user_id' => $user->id, 'category_id' => $category->id, 'deleted_by' => $user->id])->count(50)->create()->each(function ($post) {
 
-                        //creating comments
-                        echo "creating comment";
-                        Comment::factory()->count(10)->state(["post_id" => $post->id])->create();
-                        //creating tags
-                        Tag::factory()->count(5)->create()->each(function ($tag) use ($post) {
-                            echo "inserting into db\n";
+            //             //creating comments
+            //             echo "creating comment";
+            //             Comment::factory()->count(10)->state(["post_id" => $post->id])->create();
+            //             //creating tags
+            //             Tag::factory()->count(5)->create()->each(function ($tag) use ($post) {
+            //                 echo "inserting into db\n";
 
-                            DB::table('post_tag')->insert([
-                                'post_id' => $post->id,
-                                'tag_id' => $tag->id
-                            ]);
-                        });
-                    });
-                });
-            });
+            //                 DB::table('post_tag')->insert([
+            //                     'post_id' => $post->id,
+            //                     'tag_id' => $tag->id
+            //                 ]);
+            //             });
+            //         });
+            //     });
+            // });
         });
     }
 }
