@@ -59,10 +59,10 @@
                                             <td>{{ $user->name }}</td>
                                             <td>{{ $user->username }}</td>
                                             <td>
-                                                @if(count($user->roles) > 0)
-                                                {{ $user->roles[0]->name }}
+                                                @if (count($user->roles) > 0)
+                                                    {{ $user->roles[0]->name }}
                                                 @else
-                                                -
+                                                    -
                                                 @endif
                                             </td>
                                             <td>{{ count($user->posts) }}</td>
@@ -119,11 +119,13 @@
                                             <td scope="row">{{ $user->id }}</th>
                                             <td>{{ $user->name }}</td>
                                             <td>{{ $user->username }}</td>
-                                            <td>@if(count($user->roles) > 0)
-                                                {{ $user->roles[0]->name }}
+                                            <td>
+                                                @if (count($user->roles) > 0)
+                                                    {{ $user->roles[0]->name }}
                                                 @else
-                                                -
-                                                @endif</td>
+                                                    -
+                                                @endif
+                                            </td>
                                             <td>{{ count($user->posts) }}</td>
                                             <td>{{ $user->deleted_at->diffForHumans() }}</td>
                                             <td>
@@ -280,11 +282,11 @@
                                             <option>Select a role</option>
 
 
-                                            @foreach ($roles as $role)
+                                            {{-- @foreach ($roles as $role)
 
                                                 <option @if (session('data') && count(session('data')['data']->roles) > 0 && session('data')['data']->roles[0]->id == $role->id) selected @endif value="{{ $role->id }}">
                                                     {{ $role->name }}</option>
-                                            @endforeach
+                                            @endforeach --}}
 
                                         </select>
                                         @error('role')
