@@ -28,25 +28,19 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6 order-md-2">
-                    <img src="{{ asset('assets/frontend/images/img_1.jpg') }}" alt="Image" class="img-fluid">
+                    <img src="{{ asset('assets/frontend/images/img_0.jpg') }}" alt="Image" class="img-fluid">
                 </div>
                 <div class="col-md-5 mr-auto order-md-1">
-                    <h2>We Love To Explore</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea voluptate odit corrupti vitae cupiditate
-                        explicabo, soluta quibusdam necessitatibus, provident reprehenderit, dolorem saepe non eligendi
-                        possimus autem repellendus nesciunt, est deleniti libero recusandae officiis. Voluptatibus quisquam
-                        voluptatum expedita recusandae architecto quibusdam.</p>
-                    <ul class="ul-check list-unstyled success">
-                        <li>Onsectetur adipisicing elit</li>
-                        <li>Dolorem saepe non eligendi possimus</li>
-                        <li>Voluptate odit corrupti vitae</li>
-                    </ul>
+                    {{-- <h2>We Love To Explore</h2> --}}
+                    <p>A group of persons from diverse career backgrounds and interest but with a common goal of
+                        writing musings that inform, inspire and entertain readers.
+                    </p>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="site-section">
+    {{-- <div class="site-section">
         <div class="container">
             <div class="row mb-5 justify-content-center">
                 <div class="col-md-5 text-center">
@@ -102,25 +96,23 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 
     <div class="site-section bg-light">
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <img src="{{ asset('assets/frontend/images/img_1.jpg') }}" alt="Image" class="img-fluid">
+                    <img src="{{ asset('assets/frontend/images/img.jpg') }}" alt="Image" class="img-fluid">
                 </div>
                 <div class="col-md-5 ml-auto">
-                    <h2>Learn From Us</h2>
-                    <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea voluptate odit
-                        corrupti vitae cupiditate explicabo, soluta quibusdam necessitatibus, provident reprehenderit,
-                        dolorem saepe non eligendi possimus autem repellendus nesciunt, est deleniti libero recusandae
-                        officiis. Voluptatibus quisquam voluptatum expedita recusandae architecto quibusdam.</p>
+                    <h2>Our Aim</h2>
+                    <p class="mb-4">Every post is carefully and thoughtfully written</p>
 
                     <ul class="ul-check list-unstyled success">
-                        <li>Onsectetur adipisicing elit</li>
-                        <li>Dolorem saepe non eligendi possimus</li>
-                        <li>Voluptate odit corrupti vitae</li>
+                        <li>To inspire the risk averse to take risk</li>
+                        <li>Inspire the undecided to take on that course or career path</li>
+                        <li>To inform about trends in various sectors</li>
+                        <li>To entertain all who read.</li>
                     </ul>
                 </div>
             </div>
