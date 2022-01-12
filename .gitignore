@@ -1,6 +1,6 @@
 /node_modules
 /public/hot
-/public/assets/storage
+/public/assets/storage/uploads
 /storage/*.key
 .env
 .env.backup

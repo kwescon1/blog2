@@ -2200,11 +2200,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               case 2:
                 response = _context.sent;
                 _this.comment_added = true;
-                _this.form = {};
+                _this.form.name = "";
+                _this.form.comment = "";
 
                 _this.loadComments(_this.postId);
 
-              case 6:
+              case 7:
               case "end":
                 return _context.stop();
             }
@@ -2251,7 +2252,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   },
   computed: {
     baseUrl: function baseUrl() {
-      return "http://localhost:8000";
+      return "http://67.207.93.161";
     },
     postId: function postId() {
       return this.post;
