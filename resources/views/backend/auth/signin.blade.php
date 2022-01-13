@@ -20,8 +20,9 @@
         <form method="POST" action="{{ route('login') }}">
             @csrf
             <div class="login-wrapper wd-300 wd-xs-350 pd-25 pd-xs-40 bg-white">
-                <div class="signin-logo tx-center tx-24 tx-bold tx-inverse">UNDILUTED NEWS<span
-                        class="tx-info tx-normal">admin</span>
+                <div class="signin-logo tx-center tx-24 tx-bold tx-inverse">INSYDER VOICE
+                    {{-- <span
+                        class="tx-info tx-normal">admin</span> --}}
                 </div>
                 <div class="tx-center mg-b-60">Simplicity over complexity</div>
 
