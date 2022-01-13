@@ -91,6 +91,8 @@ class PostService extends CoreService implements PostServiceInterface
 
         $tags = $data['tags'];
 
+        $data['slug'] = Str::slug($data['title']);
+
         unset($data['tags']);
 
         if (array_key_exists("image", $data)) {
