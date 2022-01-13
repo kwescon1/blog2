@@ -60,7 +60,7 @@
                     </div>
 
                     <div class="col-4 site-logo">
-                        <a href="{{ route('frontendHome') }}" class="text-black h2 mb-0">HOME</a>
+                        <a href="{{ route('frontendHome') }}" class="text-black h2 mb-0">INSYDERVOICE</a>
                     </div>
                     @inject('index', 'App\Http\Controllers\JustCategoryController')
                     <div class="col-8 text-right">
