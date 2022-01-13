@@ -3,11 +3,14 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Models\User;
+use Illuminate\Http\Request;
+use Illuminate\Http\JsonResponse;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Auth\Events\Registered;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Support\Facades\Validator;
-use App\Traits\OverrideRegistersUsers;
+use Illuminate\Foundation\Auth\RegistersUsers;
 use App\Modules\Roles\Contracts\RoleServiceInterface;
 
 class RegisterController extends Controller
@@ -24,7 +27,7 @@ class RegisterController extends Controller
     |
     */
 
-    use OverrideRegistersUsers;
+    use RegistersUsers;
 
     /**
      * Where to redirect users after registration.
@@ -44,6 +47,39 @@ class RegisterController extends Controller
     {
         $this->roleService = $roleService;
         $this->middleware('auth');
+    }
+
+    /**
+     * Show the application registration form.
+     *
+     * @return \Illuminate\View\View
+     */
+    public function showRegistrationForm()
+    {
+        return view('backend.auth.signup');
+    }
+
+    /**
+     * Handle a registration request for the application.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Http\JsonResponse
+     */
+    public function register(Request $request)
+    {
+        // $this->register();
+
+        $this->validator($request->all())->validate();
+
+        event(new Registered($user = $this->create($request->all())));
+
+        if ($response = $this->registered($request, $user)) {
+            return $response;
+        }
+
+        return $request->wantsJson()
+            ? new JsonResponse([], 201)
+            : redirect()->back()->with("success", "User registered successfully");
     }
 
     /**

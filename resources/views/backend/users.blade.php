@@ -282,11 +282,11 @@
                                             <option>Select a role</option>
 
 
-                                            {{-- @foreach ($roles as $role)
+                                            @foreach ($roles as $role)
 
                                                 <option @if (session('data') && count(session('data')['data']->roles) > 0 && session('data')['data']->roles[0]->id == $role->id) selected @endif value="{{ $role->id }}">
                                                     {{ $role->name }}</option>
-                                            @endforeach --}}
+                                            @endforeach
 
                                         </select>
                                         @error('role')
