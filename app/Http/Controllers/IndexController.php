@@ -46,6 +46,10 @@ class IndexController extends Controller
     {
         $post = $this->postService->getPostBySlug($slug);
 
+        if ($post->status == 0) {
+            abort(404);
+        }
+
         $recentPosts = $this->postService->getRecentPosts($post->slug);
 
         $relatedPosts = $this->postService->getRelatedPosts($post)->toArray();
