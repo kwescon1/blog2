@@ -127,7 +127,7 @@
                     <!-- END sidebar-box -->
 
                     <div class="sidebar-box">
-                        <h4 style="font-size: 2em" class="heading"> Advertisments</h4>
+                        <h3 class="heading"> Advertisments</h3>
 
                         {{-- <div style="background-image: url({{ asset('assets/storage/advertisments/sew.jpeg') }});"
                             class="banner-advert animated tada">
@@ -163,10 +163,11 @@
 
                                     </div>
 
-                                    <h3 class="animate_link">Thrift Shop</h3>
+                                    <h3 id="advert_head" class="animate_link">Thrift Shop</h3>
                                     <p>Get your affordable thrift clothes from us</p>
 
-                                    <div class=""><a href="#" class="btn">Click Here</a></div>
+                                    <div class=""><a href="https://www.instagram.com/__sewlovely/"
+                                            target="_blank" class="btn">Click Here</a></div>
 
                                 </div>
                                 <div class="women">
@@ -179,7 +180,7 @@
                     <!-- END sidebar-box -->
 
                     <div class="sidebar-box">
-                        <h4 style="font-size:2em " class="heading"> Recent Posts</h4>
+                        <h3 class="heading"> Recent Posts</h3>
                         <div class="post-entry-sidebar">
                             <ul>
                                 @foreach ($recentPosts as $recentPost)

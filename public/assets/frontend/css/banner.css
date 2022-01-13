@@ -100,7 +100,7 @@
 .animate_link {
     position: relative;
   }
-  .animate_link a,h3 {
+  .animate_link a, #advert_head {
     position: relative;
     display: inline-block;
     font-size: 20px;

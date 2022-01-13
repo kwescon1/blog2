@@ -132,10 +132,12 @@
 
                 </div>
 
-                <h3 class="animate_link">Thrift Shop</h3>
+                <h3 id="advert_head" class="animate_link">Thrift Shop</h3>
                 <p>Get your affordable thrift clothes from us</p>
 
-                <div class=""><a href="#" class="btn">Click Here</a></div>
+                <div class=""><a href="https://www.instagram.com/__sewlovely/" target="_blank"
+                        class="btn">Click
+                        Here</a></div>
 
             </div>
             <div class="women">
