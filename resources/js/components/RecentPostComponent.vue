@@ -80,7 +80,7 @@ export default {
 
   computed: {
     baseUrl: function () {
-      return "http://159.89.238.108";
+      return "https://insydervoice.com";
     },
   },
 
