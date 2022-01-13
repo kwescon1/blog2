@@ -179,33 +179,35 @@
                     </div>
                     <!-- END sidebar-box -->
 
-                    <div class="sidebar-box">
-                        <h3 class="heading"> Recent Posts</h3>
-                        <div class="post-entry-sidebar">
-                            <ul>
-                                @foreach ($recentPosts as $recentPost)
-                                    <li>
-                                        <a href="{{ route('details', $recentPost->slug) }}">
-                                            <img src="{{ asset($recentPost->image800x549) }}" alt="Image unavailable"
-                                                class="mr-4">
-                                            <div class="text">
-                                                <h4>{{ $recentPost->title }}</h4>
-                                                <div class="post-meta">
-                                                    <span class="mr-2">
-                                                        @if ($recentPost->published_at !== null)
-                                                            {{ $recentPost->published_at->format('j F Y') }}
-                                                        @else
-                                                            -
-                                                        @endif
-                                                    </span>
+                    @if (count($recentPosts) > 0)
+                        <div class="sidebar-box">
+                            <h3 class="heading"> Recent Posts</h3>
+                            <div class="post-entry-sidebar">
+                                <ul>
+                                    @foreach ($recentPosts as $recentPost)
+                                        <li>
+                                            <a href="{{ route('details', $recentPost->slug) }}">
+                                                <img src="{{ asset($recentPost->image800x549) }}" alt="Image unavailable"
+                                                    class="mr-4">
+                                                <div class="text">
+                                                    <h4>{{ $recentPost->title }}</h4>
+                                                    <div class="post-meta">
+                                                        <span class="mr-2">
+                                                            @if ($recentPost->published_at !== null)
+                                                                {{ $recentPost->published_at->format('j F Y') }}
+                                                            @else
+                                                                -
+                                                            @endif
+                                                        </span>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                @endforeach
-                            </ul>
+                                            </a>
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            </div>
                         </div>
-                    </div>
+                    @endif
                     <!-- END sidebar-box -->
 
                     @include('frontend.partials.categories_partial')

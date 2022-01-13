@@ -44,7 +44,7 @@
     </div>
     <div class="row text-center pt-5 border-top">
       <div class="col-md-12">
-        <div class="">
+        <div class="" v-if="posts.length > 0">
           <jw-pagination
             :items="posts"
             @changePage="onChangePage"
@@ -53,6 +53,7 @@
             :labels="customLabels"
           ></jw-pagination>
         </div>
+        <div v-else>Oops! No available post</div>
       </div>
     </div>
   </div>
