@@ -137,7 +137,7 @@
                         <script>
                             document.write(new Date().getFullYear());
                         </script> All rights reserved | <a
-                            href="{{ route('frontendHome') }}">insydervoice.com</a>
+                            href="{{ route('frontendHome') }}">www.insydervoice.com</a>
                     </p>
                 </div>
             </div>
