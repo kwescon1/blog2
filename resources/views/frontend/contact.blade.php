@@ -1,7 +1,7 @@
 @extends('frontend.layout.app_layout')
 
 @section('title')
-    Contact us
+    {{ env('APP_NAME') }} - Contact us
 @endsection
 
 @section('content')

@@ -1,22 +1,19 @@
 @extends('frontend.layout.app_layout')
 
 @section('title')
-    About Us
+    {{ env('APP_NAME') }} - About Us
 @endsection
 
 @section('content')
-
-
-
     <div class="site-cover site-cover-sm same-height overlay single-page"
         style="background-image: url('assets/frontend/images/img_4.jpg');">
         <div class="container">
             <div class="row same-height justify-content-center">
                 <div class="col-md-12 col-lg-10">
                     <div class="post-entry text-center">
-                        <h1 class="">About Us</h1>
-                        <p class="lead mb-4 text-white">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem,
-                            adipisci?</p>
+                        <h1 class=""></h1>
+                        <p class="lead mb-4 text-white"></p>
+                        <br><br><br><br>
                     </div>
                 </div>
             </div>
@@ -28,7 +25,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6 order-md-2">
-                    <img src="{{ asset('assets/frontend/images/img_0.jpg') }}" alt="Image" class="img-fluid">
+                    <img src="{{ asset('assets/storage/logo_1_4_800x549.jpeg') }}" alt="Image" class="img-fluid">
                 </div>
                 <div class="col-md-5 mr-auto order-md-1">
                     {{-- <h2>We Love To Explore</h2> --}}
@@ -102,7 +99,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <img src="{{ asset('assets/frontend/images/img.jpg') }}" alt="Image" class="img-fluid">
+                    <img src="{{ asset('assets/storage/logo_1_4_800x549.jpeg') }}" alt="Image" class="img-fluid">
                 </div>
                 <div class="col-md-5 ml-auto">
                     <h2>Our Aim</h2>

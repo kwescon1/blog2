@@ -1,7 +1,7 @@
 @extends('frontend.layout.app_layout')
 
 @section('title')
-    Category - name
+    {{ env('APP_NAME') }} - {{ $data['category'] }}
 @endsection
 
 @section('style')
@@ -25,8 +25,8 @@
                 <div class="col-md-6">
                     {{-- <span>Category</span> --}}
                     <h3>{{ $data['category'] }}</h3>
-                    {{-- <p>Category description here.. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam error
-                        eius quo, officiis non maxime quos reiciendis perferendis doloremque maiores!</p> --}}
+                    <p>We bring you the best in {{ strtolower($data['category']) }} news. Sit back as we educate you on
+                        latest trends with our well articulated articles.</p>
                 </div>
             </div>
         </div>
@@ -35,15 +35,15 @@
     <div class="site-section bg-white">
         <div class="container">
             <div class="row">
-                @if(count($data['posts']) > 0)
-                @foreach ($data['posts'] as $post)
-                    <div class="col-lg-4 mb-4">
-                        <div class="entry2">
-                            <a href="{{ route('details', $post->slug) }}"><img src="{{ asset($post->image800x549) }}"
-                                    alt="Image" class="img-fluid rounded"></a>
-                            <div class="excerpt">
-                                <span
-                                    class="post-category text-white 
+                @if (count($data['posts']) > 0)
+                    @foreach ($data['posts'] as $post)
+                        <div class="col-lg-4 mb-4">
+                            <div class="entry2">
+                                <a href="{{ route('details', $post->slug) }}"><img
+                                        src="{{ asset($post->image800x549) }}" alt="Image" class="img-fluid rounded"></a>
+                                <div class="excerpt">
+                                    <span
+                                        class="post-category text-white 
                                 
                                 @switch($data['category'])
                                     @case('SPORTS')
@@ -74,28 +74,29 @@
                                 
                                 mb-3">{{ $data['category'] }}</span>
 
-                                <h2><a href="{{ route('details', $post->slug) }}">{{ $post->title }}</a></h2>
-                                <div class="post-meta align-items-center text-left clearfix">
-                                    <figure class="author-figure mb-0 mr-3 float-left"><img
-                                            src="{{ asset($post->user->image665x665) }}" alt="Image"
-                                            class="img-fluid"></figure>
-                                    <span class="d-inline-block mt-1">By <a href="#">{{ $post->user->name }}</a></span>
-                                    <span>&nbsp;-&nbsp; @if ($post->published_at !== null)
-                                            {{ $post->published_at->format('j F Y') }}
-                                        @else
-                                            -
-                                        @endif
-                                    </span>
-                                </div>
+                                    <h2><a href="{{ route('details', $post->slug) }}">{{ $post->title }}</a></h2>
+                                    <div class="post-meta align-items-center text-left clearfix">
+                                        <figure class="author-figure mb-0 mr-3 float-left"><img
+                                                src="{{ asset($post->user->image665x665) }}" alt="Image"
+                                                class="img-fluid"></figure>
+                                        <span class="d-inline-block mt-1">By <a
+                                                href="#">{{ $post->user->name }}</a></span>
+                                        <span>&nbsp;-&nbsp; @if ($post->published_at !== null)
+                                                {{ $post->published_at->format('j F Y') }}
+                                            @else
+                                                -
+                                            @endif
+                                        </span>
+                                    </div>
 
-                                <!-- <p>{!! Illuminate\Support\Str::limit($post->content, 200, $end = '....') !!}.</p> -->
-                                <p><a href="{{ route('details', $post->slug) }}">Read More</a></p>
+                                    <!-- <p>{!! Illuminate\Support\Str::limit($post->content, 200, $end = '....') !!}.</p> -->
+                                    <p><a href="{{ route('details', $post->slug) }}">Read More</a></p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                @endforeach
+                    @endforeach
                 @else
-                <h3>No available post</h3>
+                    <h3>No available post</h3>
                 @endif
 
             </div>

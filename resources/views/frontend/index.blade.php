@@ -1,7 +1,7 @@
 @extends('frontend.layout.app_layout')
 
 @section('title')
-    Homepage
+    {{ env('APP_NAME') }} - Home
 @endsection
 
 @section('style')
