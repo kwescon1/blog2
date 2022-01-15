@@ -61,12 +61,12 @@ class PostService extends CoreService implements PostServiceInterface
 
         switch ($status) {
             case '0':
-                $this->postRepository->update($id, ['status' => $status, 'published_at' => NULL]);
+                $this->postRepository->update($id, ['status' => $status, 'published_at' => $post->published_at]);
                 return "Post Status changed to Draft";
                 break;
 
             case '1':
-                $this->postRepository->update($id, ['status' => $status, 'published_at' => now()]);
+                $this->postRepository->update($id, ['status' => $status, 'published_at' => $post->published_at]);
                 return "Post Published";
                 break;
 
@@ -76,7 +76,7 @@ class PostService extends CoreService implements PostServiceInterface
                 break;
 
             default:
-                $this->postRepository->update($id, ['status' => $status, 'published_at' => NULL]);
+                $this->postRepository->update($id, ['status' => $status]);
                 return "Post Status changed to Draft";
                 break;
         }
@@ -109,8 +109,8 @@ class PostService extends CoreService implements PostServiceInterface
             $data['image800x1166'] = $paths[1];
         }
 
-        if ($data['status'] == self::STATUS_DRAFT) {
-            $data['published_at'] = NULL;
+        if ($data['status'] == self::STATUS_PUBLISHED && $post->published_at == "") {
+            $data['published_at'] = now();
         }
 
         $post =  $this->postRepository->update($id, $data);
