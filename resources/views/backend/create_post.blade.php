@@ -142,10 +142,10 @@
                                 <div class="form-group">
                                     <textarea required id="summernote" name="content"
                                         class="form-control @error('content') is-invalid @enderror">
-                                                                        @if ($data['type'] == 'EDIT POST') 
-                                                                            {{ $data['post']->content }}
-                                                                        @endif                                                            
-                                                                    </textarea>
+                                                                                                                                                    @if ($data['type'] == 'EDIT POST') 
+                                                                                                                                                        {{ $data['post']->content }}
+                                                                                                                                                    @endif                                                            
+                                                                                                                                                </textarea>
 
                                     @error('content')
                                         <span class="invalid-feedback" role="alert">
@@ -191,7 +191,21 @@
             // Summernote editor
             $('#summernote').summernote({
                 height: 150,
-                tooltip: false
+                tooltip: false,
+                toolbar: [
+                    ['style', ['style']],
+                    ['font', ['bold', 'underline', 'clear']],
+                    ['fontname', ['fontname']],
+                    ['fontsize', ['fontsize']],
+                    ['color', ['color']],
+                    ['para', ['ul', 'ol', 'paragraph']],
+                    ['table', ['table']],
+                    ['insert', ['link', 'picture', 'video']],
+                    ['view', ['fullscreen', 'codeview', 'help']],
+                ],
+                fontNames: ['Arial', 'Arial Black', 'Comic Sans MS', 'Courier New', 'Times New Roman',
+                    'Tahoma', 'Serif', 'Sans', 'sans-serif'
+                ],
             })
         });
     </script>
