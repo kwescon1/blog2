@@ -228,7 +228,9 @@ class PostService extends CoreService implements PostServiceInterface
     public function getRecentPosts($slug): ?Collection
     {
         //cache
-        return $this->cachePost('postDetailsRecentPosts', 60 * 24 * 60, $this->postRepository->getRecentPosts($slug, self::STATUS_PUBLISHED));
+        // return $this->cachePost('postDetailsRecentPosts', 60 * 24 * 60, $this->postRepository->getRecentPosts($slug, self::STATUS_PUBLISHED));
+
+        return $this->postRepository->getRecentPosts($slug, self::STATUS_PUBLISHED);
     }
 
     //for post details page
