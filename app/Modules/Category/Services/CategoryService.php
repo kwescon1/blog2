@@ -47,6 +47,8 @@ class CategoryService extends CoreService implements CategoryServiceInterface
 
     public function update($data, $id): void
     {
+        $data['name'] = strtoupper($data['name']);
+
         $this->categoryRepository->update($id, $data);
     }
 
