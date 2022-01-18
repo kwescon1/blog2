@@ -1,6 +1,12 @@
 @extends('backend.layouts.app')
 @section('title')
-    New Post
+    {{ $data['post']->title }}
+@endsection
+
+@section('summernote')
+    <link href="{{ asset('assets/backend/lib/highlightjs/github.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/backend/lib/summernote/summernote-bs4.css') }}" rel="stylesheet">
+
 @endsection
 
 
@@ -90,17 +96,16 @@
 
                                 {{-- content --}}
                                 <div class="form-group">
-                                    <textarea readonly required id="content" name="content"
+                                    <textarea readonly required id="summernote" name="content"
                                         class="form-control @error('content') is-invalid @enderror">
 
-                                                                                                            {{ $data['post']->content }}
-                                                                                                                                                                                                                         </textarea>
+                                                                                                                        {{ $data['post']->content }}
+                                                                                                                                                                                                                                     </textarea>
                                 </div>
 
                                 <div class="row">
                                     {{-- publish --}}
-                                    @if (auth()->user()->roles[0]->hasPermissionTo('can-publish-post') &&
-        $data['post']->status == 0)
+                                    @if (auth()->user()->roles[0]->hasPermissionTo('can-publish-post') && $data['post']->status == 0)
                                         <a href="{{ route('status.change', [$data['post']->id, 1]) }}"
                                             class="btn btn-success"><svg xmlns="http://www.w3.org/2000/svg" width="16"
                                                 height="16" fill="currentColor" class="bi bi-arrow-bar-up"
@@ -111,8 +116,7 @@
                                     @endif
 
                                     {{-- unpublished --}}
-                                    @if (auth()->user()->roles[0]->hasPermissionTo('can-unpublish-post') &&
-        $data['post']->status == 1)
+                                    @if (auth()->user()->roles[0]->hasPermissionTo('can-unpublish-post') && $data['post']->status == 1)
                                         <a href="{{ route('status.change', [$data['post']->id, 0]) }}"
                                             class="btn btn-dark"><svg xmlns="http://www.w3.org/2000/svg" width="16"
                                                 height="16" fill="currentColor" class="bi bi-arrow-bar-down"
@@ -123,8 +127,7 @@
                                     @endif
 
                                     {{-- archive --}}
-                                    @if (auth()->user()->roles[0]->hasPermissionTo('can-archive-post') &&
-        $data['post']->status == 1)
+                                    @if (auth()->user()->roles[0]->hasPermissionTo('can-archive-post') && $data['post']->status == 1)
                                         <a href="{{ route('status.change', [$data['post']->id, 2]) }}"
                                             class="btn btn-info"><svg xmlns="http://www.w3.org/2000/svg" width="16"
                                                 height="16" fill="currentColor" class="bi bi-archive-fill"
@@ -135,8 +138,7 @@
                                     @endif
 
                                     {{-- unarchive --}}
-                                    @if (auth()->user()->roles[0]->hasPermissionTo('can-unarchive-post') &&
-        $data['post']->status == 2)
+                                    @if (auth()->user()->roles[0]->hasPermissionTo('can-unarchive-post') && $data['post']->status == 2)
                                         <a href="{{ route('status.change', [$data['post']->id, 1]) }}"
                                             class="btn btn-success"><svg xmlns="http://www.w3.org/2000/svg" width="16"
                                                 height="16" fill="currentColor" class="bi bi-arrow-90deg-left"
@@ -174,18 +176,35 @@
         };
     </script>
 
-    <script src="https://cdn.tiny.cloud/1/v1cw5i5ly18aizcmlr9c0xpc5q14mepwmg5ps0zgxii32o1d/tinymce/5/tinymce.min.js"
-        referrerpolicy="origin"></script>
+    @section('summernoteJS')
+        <script src="{{ asset('assets/backend/lib/highlightjs/highlight.pack.js') }}"></script>
+        <script src="{{ asset('assets/backend/lib/summernote/summernote-bs4.min.js') }}"></script>
+        <script>
+            $(function() {
+                'use strict';
 
-    <script>
-        tinymce.init({
-            selector: 'textarea',
-            plugins: 'paste emoticons advlist autolink lists link image charmap print preview hr anchor pagebreak codesample directionality wordcount visualchars visualblocks lists advlist bbcode code fullscreen help imagetools importcss insertdatetime media preview searchreplace spellchecker tabfocus table fullpage',
-            toolbar_mode: 'floating',
-            toolbar: 'code codesample ltr rtl wordcount visualchars visualblocks anchor emoticons fullscreen help hr image insertdatetime link numlist bullist media preview searchreplace spellchecker table tabledelete | tableprops tablerowprops tablecellprops | tableinsertrowbefore tableinsertrowafter tabledeleterow | tableinsertcolbefore tableinsertcolafter tabledeletecol template fullpage',
-            content_css: '/my-styles.css',
-            spellchecker_rpc_url: 'spellchecker.php'
+                // Summernote editor
+                $('#summernote').summernote({
+                    height: 150,
+                    tooltip: false,
+                    toolbar: [
+                        ['style', ['style']],
+                        ['font', ['bold', 'underline', 'clear']],
+                        ['fontname', ['fontname']],
+                        ['fontsize', ['fontsize']],
+                        ['color', ['color']],
+                        ['para', ['ul', 'ol', 'paragraph']],
+                        ['table', ['table']],
+                        ['insert', ['link', 'picture', 'video']],
+                        ['view', ['fullscreen', 'codeview', 'help']],
+                        ['height', ['height']]
+                    ],
+                    fontNames: ['Arial', 'Arial Black', 'Comic Sans MS', 'Courier New', 'Times New Roman',
+                        'Tahoma', 'Serif', 'Sans', 'sans-serif'
+                    ],
+                })
+            });
+        </script>
 
-        });
-    </script>
+    @endsection
 @endsection
