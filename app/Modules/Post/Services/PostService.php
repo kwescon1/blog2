@@ -66,7 +66,14 @@ class PostService extends CoreService implements PostServiceInterface
                 break;
 
             case '1':
-                $this->postRepository->update($id, ['status' => $status, 'published_at' => $post->published_at]);
+                $data = "";
+                if (!$post->published_at) {
+                    $data = \Carbon\Carbon::now();
+                } else {
+                    $data = $post->published_at;
+                }
+
+                $this->postRepository->update($id, ['status' => $status, 'published_at' => $data]);
                 return "Post Published";
                 break;
 
