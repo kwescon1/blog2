@@ -50,8 +50,12 @@
 
                         <h1 class="mb-4"><a href="#">{{ $post->title }}</a></h1>
                         <div class="post-meta align-items-center text-center">
-                            <figure class="author-figure mb-0 mr-3 d-inline-block"><img
-                                    src="{{ asset(asset($post->user->image665x665)) }}" alt="Image" class="img-fluid">
+                            <figure class="author-figure mb-0 mr-3 d-inline-block"><img @if ($post->user->image665x665)
+                                src="{{ asset($post->user->image665x665) }}"
+                            @else
+                                src="{{ asset('assets/frontend/images/dummyIcon.png') }}"
+                                @endif
+                                alt="Image" class="img-fluid">
                             </figure>
                             <span class="d-inline-block mt-1">By {{ $post->user->name }}</span>
                             <span>&nbsp;-&nbsp; @if ($post->published_at !== null)
@@ -95,8 +99,12 @@
                     <!-- END sidebar-box -->
                     <div class="sidebar-box">
                         <div class="bio text-center">
-                            <img src="{{ asset($post->user->image665x665) }}" alt="Image Placeholder"
-                                class="img-fluid mb-5">
+                            <img @if ($post->user->image665x665)
+                            src="{{ asset($post->user->image665x665) }}"
+                        @else
+                            src="{{ asset('assets/frontend/images/dummyIcon.png') }}"
+                            @endif
+                            alt="Image" class="img-fluid mb-5">
                             <div class="bio-body">
                                 <h3>{{ $post->user->name }}</h3>
                                 <p class="mb-4">{{ $post->user->mission }}</p>
