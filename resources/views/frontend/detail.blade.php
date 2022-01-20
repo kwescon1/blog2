@@ -152,7 +152,7 @@
 
                             <div class="banner">
                                 <div class="shoe">
-                                    <img src="{{ asset('assets/storage/advertisments/shoe.png') }}" alt="">
+                                    <img src="{{ asset('assets/storage/advertisments/sewlovely.png') }}" alt="">
                                 </div>
                                 <div class="content">
                                     <div class="waviy">
