@@ -1,5 +1,20 @@
 @extends('frontend.layout.app_layout')
 
+@section('meta')
+    <meta name="keywords" content="     @foreach ($post->tags as $tag)
+    {{ $tag->name }},
+    @endforeach">
+    <meta name="author" content="{{ $post->user->name }}">
+    <meta name="description" content="{{ $post->title }}">
+
+    <meta property="og:image" content="{{ asset($post->image800x549) }}" />
+    <meta property="og:image:secure_url" content="{{ asset($post->image800x549) }}" />
+    {{-- <meta property="og:image:type" content="image/jpeg" /> --}}
+    {{-- <meta property="og:image:width" content="400" />
+    <meta property="og:image:height" content="300" /> --}}
+    {{-- <meta property="og:image:alt" content="A shiny red apple with a bite taken out" /> --}}
+@endsection
+
 @section('title')
     {{ $post->title }}
 @endsection

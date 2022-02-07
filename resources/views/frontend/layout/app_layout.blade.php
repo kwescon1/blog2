@@ -5,6 +5,7 @@
     <title>@yield('title')</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    @yield('meta')
 
     <link rel="icon" type="image/gif/png" href="{{ asset('assets/storage/favicon/favicon.jpeg') }}">
 
@@ -111,6 +112,7 @@
                         <li><a href="#">Advertise</a></li>
                         <li><a href="{{ route('contactUs') }}">Contact us</a></li>
                         <li><a href="#">Subscribes</a></li>
+                        <li><a href="#">Privacy</a></li>
                     </ul>
                     <ul class="list-unstyled float-left">
                         @foreach ($index->cats() as $category)

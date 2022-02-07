@@ -4,6 +4,15 @@
     {{ env('APP_NAME') }} - Home
 @endsection
 
+@section('meta')
+    <meta name="description" content="Home of quality content">
+    <meta property="og:image" content="{{ asset('assets/storage/logo/logo_1_50_1_496x300.jpeg') }}" />
+    <meta property="og:image:secure_url" content="{{ asset('assets/storage/logo/logo_1_50_1_496x300.jpeg') }}" />
+    {{-- <meta property="og:image:type" content="image/jpeg" /> --}}
+    {{-- <meta property="og:image:width" content="800" />
+    <meta property="og:image:height" content="549" /> --}}
+@endsection
+
 @section('style')
 <link rel="stylesheet" href="{{ asset('assets/frontend/css/banner.css') }}">@endsection
 @section('content')
