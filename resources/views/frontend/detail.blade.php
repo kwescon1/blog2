@@ -103,7 +103,7 @@
                     <div class="pt-5">
                         <p>
                             <a class="twitter-share-button"
-                                href="https://twitter.com/intent/tweet?text={{ url()->current() }}" data-size="large">
+                                href="https://twitter.com/intent/tweet?text={{ url()->full() }}" data-size="large">
                                 Tweet</a>
                             {{-- <a href="https://twitter.com/TwitterDev?ref_src=twsrc%5Etfw"
                                 class="twitter-follow-button" data-show-count="false" data-size="large">Follow
