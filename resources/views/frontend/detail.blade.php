@@ -1,7 +1,7 @@
 @extends('frontend.layout.app_layout')
 
 @section('meta')
-    <meta name="keywords" content="     @foreach ($post->tags as $tag)
+    <meta name="keywords" content="                      @foreach ($post->tags as $tag)
     {{ $tag->name }},
     @endforeach">
     <meta name="author" content="{{ $post->user->name }}">
@@ -9,10 +9,6 @@
 
     <meta property="og:image" content="{{ asset($post->image800x549) }}" />
     <meta property="og:image:secure_url" content="{{ asset($post->image800x549) }}" />
-    {{-- <meta property="og:image:type" content="image/jpeg" /> --}}
-    {{-- <meta property="og:image:width" content="400" />
-    <meta property="og:image:height" content="300" /> --}}
-    {{-- <meta property="og:image:alt" content="A shiny red apple with a bite taken out" /> --}}
 @endsection
 
 @section('title')
@@ -101,6 +97,17 @@
                         <p>Category: <a
                                 href="{{ route('category', $post->category->name) }}">{{ ucfirst(strtolower($post->category->name)) }}</a>
                             Tags:@foreach ($post->tags as $tag) <a href="#">#{{ $tag->name }}</a>, @endforeach </p>
+                    </div>
+
+                    <div class="pt-5">
+                        <p>
+                            <a class="twitter-share-button"
+                                href="https://twitter.com/intent/tweet?text={{ url()->full() }}" data-size="large">
+                                Tweet</a>
+                            {{-- <a href="https://twitter.com/TwitterDev?ref_src=twsrc%5Etfw"
+                                class="twitter-follow-button" data-show-count="false" data-size="large">Follow
+                                @TwitterDev</a> --}}
+                        </p>
                     </div>
 
 
@@ -360,13 +367,8 @@
 @endsection
 
 @section('scripts')
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
     {{-- <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js" defer></script> --}}
 
     {{-- <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?lang=css&skin=desert" defer>  </script> --}}
-
-    {{-- <script
-        src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?autoload=true&amp;skin=sunburst&amp;lang=css"
-        defer></script> --}}
-
-    {{-- <script src="https://cdn.rawgit.com/skipser/youtube-autoresize/master/youtube-autoresizer.js" defer></script> --}}
 @endsection
