@@ -2,11 +2,11 @@
 
 @section('meta')
     <meta name="keywords" content="                                                     
-                  @foreach ($post->tags as $tag)
+                       @foreach ($post->tags as $tag)
     {{ $tag->name }},
     @endforeach">
     <meta name="author" content="{{ $post->user->name }}">
-    <meta name="description" content="{!! \Illuminate\Support\Str::limit($post->content, 40, '...') !!}">
+    {{-- <meta name="description" content="{!! \Illuminate\Support\Str::limit($post->content, 40, '...') !!}"> --}}
 
     <meta property="og:image" content="{{ asset($post->image800x549) }}" />
     <meta property="og:image:secure_url" content="{{ asset($post->image800x549) }}" />
