@@ -1,7 +1,7 @@
 @extends('frontend.layout.app_layout')
 
 @section('meta')
-    <meta name="keywords" content="                               @foreach ($post->tags as
+    <meta name="keywords" content="                                @foreach ($post->tags as
         $tag)
     {{ $tag->name }},
     @endforeach">
@@ -12,7 +12,7 @@
     <meta property="og:image:secure_url" content="{{ asset($post->image800x549) }}" />
 
     <!-- Twitter -->
-    {{-- <meta name="twitter:site" content="@themepixels"> --}}
+    <meta name="twitter:site" content="@themepixels">
     <meta name="twitter:creator" content="{{ $post->user->name }}">
     <meta name="twitter:card" content="summary_large_image">
     {{-- <meta name="twitter:title" content=""> --}}
