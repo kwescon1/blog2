@@ -1,7 +1,7 @@
 @extends('frontend.layout.app_layout')
 
 @section('meta')
-    <meta name="keywords" content="                           @foreach ($post->tags as
+    <meta name="keywords" content="                            @foreach ($post->tags as
         $tag)
     {{ $tag->name }},
     @endforeach">
@@ -103,8 +103,7 @@
                     <div class="pt-5">
                         <p>
                             <a class="twitter-share-button"
-                                href="https://twitter.com/intent/tweet?text={{ $post->title }}-{{ url()->full() }}"
-                                data-size="large">
+                                href="https://twitter.com/intent/tweet?text={{ $post->title }}" data-size="large">
                                 Tweet</a>
                             {{-- <a href="https://twitter.com/TwitterDev?ref_src=twsrc%5Etfw"
                                 class="twitter-follow-button" data-show-count="false" data-size="large">Follow
