@@ -2,7 +2,7 @@
 
 @section('meta')
     <meta name="keywords" content="                                                     
-             @foreach ($post->tags as $tag)
+                  @foreach ($post->tags as $tag)
     {{ $tag->name }},
     @endforeach">
     <meta name="author" content="{{ $post->user->name }}">
@@ -114,6 +114,7 @@
 
                         <div class="row">
                             <p style="margin-right:10px">
+                                <!-- Twitter Share Button -->
                                 <a class="twitter-share-button"
                                     href="https://twitter.com/intent/tweet?text={{ $post->title }} - ?url={{ url()->full() }}"
                                     data-size="large">
@@ -121,7 +122,7 @@
                             </p>
 
                             <p style="margin-right:10px">
-                                <!-- Facebook Share -->
+                                <!-- Facebook Share Button -->
                                 <a class="fb-share-button" href="{{ url()->full() }}" layout="button" data-size="large">
                                 </a>
                             </p>
