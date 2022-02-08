@@ -1,7 +1,8 @@
 @extends('frontend.layout.app_layout')
 
 @section('meta')
-    <meta name="keywords" content="                      @foreach ($post->tags as $tag)
+    <meta name="keywords" content="                       @foreach ($post->tags as
+        $tag)
     {{ $tag->name }},
     @endforeach">
     <meta name="author" content="{{ $post->user->name }}">
@@ -136,14 +137,16 @@
                                                 class="icon-facebook pt-2 pr-2 pb-2 pl-0"></span></a>
                                     @endif
                                     @if ($post->user->twitter)
-                                        <a href="{{ $post->user->twitter }}"><span class="icon-twitter p-2"></span></a>
+                                        <a href="{{ $post->user->twitter }}" target="_blank"><span
+                                                class="icon-twitter p-2"></span></a>
                                     @endif
                                     @if ($post->user->instagram)
-                                        <a href="{{ $post->user->instagram }}"><span
-                                                class="icon-instagram p-2"></span></a>
+                                        <a href="{{ $post->user->instagram }}"><span class="icon-instagram p-2"
+                                                target="_blank"></span></a>
                                     @endif
                                     @if ($post->user->linkedIn)
-                                        <a href="{{ $post->user->linkedIn }}"><span class="icon-linkedin p-2"></span></a>
+                                        <a href="{{ $post->user->linkedIn }}" target="_blank"><span
+                                                class="icon-linkedin p-2"></span></a>
                                     @endif
                                     @if ($post->user->email)
                                         <a href="mailto:{{ $post->user->email }}"><span
