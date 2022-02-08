@@ -26,6 +26,8 @@
 
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6297431891068563"
         crossorigin="anonymous"></script>
+
+
 </head>
 
 <body>
@@ -167,7 +169,7 @@
 
     <script src="{{ asset('assets/frontend/js/main.js') }}"></script>
 
-
+    @yield('scripts')
 </body>
 
 </html>
