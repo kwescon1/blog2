@@ -1,8 +1,7 @@
 @extends('frontend.layout.app_layout')
 
 @section('meta')
-    <meta name="keywords" content="                                @foreach ($post->tags as
-        $tag)
+    <meta name="keywords" content="                                      @foreach ($post->tags as $tag)
     {{ $tag->name }},
     @endforeach">
     <meta name="author" content="{{ $post->user->name }}">
@@ -12,12 +11,25 @@
     <meta property="og:image:secure_url" content="{{ asset($post->image800x549) }}" />
 
     <!-- Twitter -->
-    <meta name="twitter:site" content="@themepixels">
-    <meta name="twitter:creator" content="{{ $post->user->name }}">
-    <meta name="twitter:card" content="summary_large_image">
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@nytimesbits" />
+    <meta name="twitter:creator" content="@nickbilton" />
+    <meta property="og:url" content="http://bits.blogs.nytimes.com/2011/12/08/a-twitter-for-my-sister/" />
+    <meta property="og:title" content="A Twitter for My Sister" />
+    <meta property="og:description"
+        content="In the early days, Twitter grew so quickly that it was almost impossible to add new features because engineers spent their time trying to keep the rocket ship from stalling." />
+    <meta property="og:image"
+        content="http://graphics8.nytimes.com/images/2011/12/08/technology/bits-newtwitter/bits-newtwitter-tmagArticle.jpg" />
+
+    {{-- <meta name="twitter:card" content="summary_large_image"> --}}
+    {{-- </meta> --}}
+    {{-- <meta name="twitter:site" content="@themepixels"> --}}
+    {{-- <meta name="twitter:creator" content="@__kwesiKod "> --}}
+
     {{-- <meta name="twitter:title" content=""> --}}
-    <meta name="twitter:description" content="{{ $post->title }}">
-    <meta name="twitter:image" content="{{ asset($post->image800x549) }}">
+    {{-- <meta name="twitter:description" content="{{ $post->title }}">
+    <meta name="twitter:image" content="{{ asset($post->image800x549) }}"> --}}
 @endsection
 
 @section('title')
@@ -111,7 +123,7 @@
                     <div class="pt-5">
                         <p>
                             <a class="twitter-share-button"
-                                href="https://twitter.com/intent/tweet?text={{ $post->title }}?url={{ url()->full() }}"
+                                href="https://twitter.com/intent/tweet?text={{ $post->title }} - ?url={{ url()->full() }}"
                                 data-size="large">
                                 Tweet</a>
                             {{-- <a href="https://twitter.com/TwitterDev?ref_src=twsrc%5Etfw"
