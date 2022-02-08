@@ -1,7 +1,8 @@
 @extends('frontend.layout.app_layout')
 
 @section('meta')
-    <meta name="keywords" content="                                          @foreach ($post->tags as $tag)
+    <meta name="keywords" content="                                                     
+             @foreach ($post->tags as $tag)
     {{ $tag->name }},
     @endforeach">
     <meta name="author" content="{{ $post->user->name }}">
@@ -110,15 +111,32 @@
                     </div>
 
                     <div class="pt-5">
-                        <p>
-                            <a class="twitter-share-button"
-                                href="https://twitter.com/intent/tweet?text={{ $post->title }} - ?url={{ url()->full() }}"
-                                data-size="large">
-                                Tweet</a>
-                            {{-- <a href="https://twitter.com/TwitterDev?ref_src=twsrc%5Etfw"
+
+                        <div class="row">
+                            <p style="margin-right:10px">
+                                <a class="twitter-share-button"
+                                    href="https://twitter.com/intent/tweet?text={{ $post->title }} - ?url={{ url()->full() }}"
+                                    data-size="large">
+                                    Tweet</a>
+                            </p>
+
+                            <p style="margin-right:10px">
+                                <!-- Facebook Share -->
+                                <a class="fb-share-button" href="{{ url()->full() }}" layout="button" data-size="large">
+                                </a>
+                            </p>
+                        </div>
+
+
+
+
+
+
+
+                        {{-- <a href="https://twitter.com/TwitterDev?ref_src=twsrc%5Etfw"
                                 class="twitter-follow-button" data-show-count="false" data-size="large">Follow
                                 @TwitterDev</a> --}}
-                        </p>
+
                     </div>
 
 
@@ -381,6 +399,17 @@
 
 @section('scripts')
     <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+    <script>
+        (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s);
+            js.id = id;
+            js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
     {{-- <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js" defer></script> --}}
 
     {{-- <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?lang=css&skin=desert" defer>  </script> --}}
