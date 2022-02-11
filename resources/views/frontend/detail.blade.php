@@ -2,13 +2,14 @@
 
 @section('meta')
     <meta name="keywords" content="                                                     
-                                                     @foreach ($post->tags as $tag)
+                                                          @foreach ($post->tags as
+        $tag)
     {{ $tag->name }},
     @endforeach">
-    <meta name="robots" content="max-image-preview:large, index" />
     <meta name="author" content="{{ $post->user->name }}">
     <meta name="title" content="{{ $post->title }}">
-    <meta name="description" content="{{ $post->title }}">
+    {{-- <meta name="description" content="{{ $post->title }}"> --}}
+    <meta name="robots" content="index, follow" />
 
     <meta property="og:image" content="{{ asset($post->image800x549) }}" />
     <meta property="og:image:secure_url" content="{{ asset($post->image800x549) }}" />
