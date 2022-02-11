@@ -2,10 +2,10 @@
 
 @section('meta')
     <meta name="keywords" content="                                                     
-                                                @foreach ($post->tags as $tag)
+                                                     @foreach ($post->tags as $tag)
     {{ $tag->name }},
     @endforeach">
-    <meta name="robots" content="max-snippet:-1, max-image-preview:large, max-video-preview:-1, index" />
+    <meta name="robots" content="max-image-preview:large, index" />
     <meta name="author" content="{{ $post->user->name }}">
     <meta name="title" content="{{ $post->title }}">
     <meta name="description" content="{{ $post->title }}">
