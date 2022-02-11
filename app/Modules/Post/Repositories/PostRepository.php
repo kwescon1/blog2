@@ -52,7 +52,7 @@ class PostRepository extends BaseRepository implements PostRepositoryInterface
     {
         return $this->model()->where('status', $status)->whereHas('category', function ($q) use ($name) {
             $q->where('name', $name);
-        })->paginate(6);
+        })->latest()->paginate(6);
     }
 
     public function getBySlug($slug): ?object
