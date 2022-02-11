@@ -2,11 +2,13 @@
 
 @section('meta')
     <meta name="keywords" content="                                                     
-                            @foreach ($post->tags as $tag)
+                                                @foreach ($post->tags as $tag)
     {{ $tag->name }},
     @endforeach">
+    <meta name="robots" content="max-snippet:-1, max-image-preview:large, max-video-preview:-1, index" />
     <meta name="author" content="{{ $post->user->name }}">
-    <meta name="description" content="{!! \Illuminate\Support\Str::limit($post->content, 30, '...') !!}">
+    <meta name="title" content="{{ $post->title }}">
+    <meta name="description" content="{{ $post->title }}">
 
     <meta property="og:image" content="{{ asset($post->image800x549) }}" />
     <meta property="og:image:secure_url" content="{{ asset($post->image800x549) }}" />
@@ -43,24 +45,24 @@
                                 
                                 @switch($post->category->name)
                                     @case('SPORTS')
-                                            bg-danger
-                                        @break
+bg-danger
+@break
 
                                         @case('TECH')
-                                        bg-secondary
-                                    @break
+bg-secondary
+@break
 
                                     @case('FINANCE')
-                                        bg-success
-                                    @break
+bg-success
+@break
 
                                     @case('ENTERTAINMENT')
-                                        bg-warning
-                                    @break
+bg-warning
+@break
 
                                     @case('POLITICS')
-                                        bg-danger
-                                    @break
+bg-danger
+@break
 
                                     @default
                                     bg-warning
