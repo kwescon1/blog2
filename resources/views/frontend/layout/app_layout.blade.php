@@ -75,11 +75,9 @@
                         <nav class="site-navigation" role="navigation">
                             <ul class="site-menu js-clone-nav mr-auto d-none d-lg-block mb-0">
                                 @foreach ($index->cats() as $category)
-
                                     <li><a
                                             href="{{ route('category', $category->name) }}">{{ $category->name }}</a>
                                     </li>
-
                                 @endforeach
                                 <li class="d-none d-lg-inline-block"><a href="#searchForm" data-target="#searchForm"
                                         data-toggle="collapse" class="js-search-toggle"><span
@@ -114,7 +112,7 @@
                         <li><a href="#">Advertise</a></li>
                         <li><a href="{{ route('contactUs') }}">Contact us</a></li>
                         <li><a href="#">Subscribes</a></li>
-                        <li><a href="#">Privacy</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
                     </ul>
                     <ul class="list-unstyled float-left">
                         @foreach ($index->cats() as $category)
