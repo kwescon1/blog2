@@ -93,6 +93,8 @@ Route::get('about-us', function () {
     return view('frontend.about');
 })->name('about');
 
+Route::get('author-posts/{username}', [\App\Http\Controllers\IndexController::class, 'authorPosts'])->name("authorPosts");
+
 
 // 
-Route::get('test', [\App\Http\Controllers\NotificationController::class, 'contactUs']);
+// Route::get('test', [\App\Http\Controllers\NotificationController::class, 'contactUs']);
