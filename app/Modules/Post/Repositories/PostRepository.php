@@ -67,7 +67,7 @@ class PostRepository extends BaseRepository implements PostRepositoryInterface
 
         $ids = $this->getFirstFivePosts($status)->pluck('id');
 
-        return $this->model()->latest()->where('status', $status)->whereNotIn('id', $ids)->limit(11)->get();
+        return $this->model()->latest()->where('status', $status)->whereNotIn('id', $ids)->limit(12)->get();
     }
 
     public function getRecentPosts($slug, $status): ?Collection
@@ -79,7 +79,7 @@ class PostRepository extends BaseRepository implements PostRepositoryInterface
     {
         return $this->model()->inRandomOrder()->with('category')->where('status', $status)->where('slug', '!=', $post->slug)->whereHas('tags', function ($q) use ($post) {
             $q->whereIn('name', $post->tags->pluck('name'));
-        })->limit(3)->get();
+        })->limit(4)->get();
 
         //try where cateory
     }
@@ -88,7 +88,7 @@ class PostRepository extends BaseRepository implements PostRepositoryInterface
     //get first 5 records for home page header
     public function getFirstFivePosts($status): ?Collection
     {
-        return $this->model()->latest()->where('status', $status)->with('category')->limit(4)->get();
+        return $this->model()->latest()->where('status', $status)->with('category')->limit(5)->get();
     }
 
     //get last 4 records for home page footer
@@ -100,7 +100,7 @@ class PostRepository extends BaseRepository implements PostRepositoryInterface
 
         $new = $ids->merge($ids2);
 
-        return $this->model()->latest()->where('status', $status)->whereNotIn('id', $new)->limit(3)->get();
+        return $this->model()->latest()->where('status', $status)->whereNotIn('id', $new)->limit(4)->get();
     }
 
     public function search($param): ?\Illuminate\Pagination\LengthAwarePaginator
