@@ -100,7 +100,7 @@ class PostRepository extends BaseRepository implements PostRepositoryInterface
 
         $new = $ids->merge($ids2);
 
-        return $this->model()->latest()->where('status', $status)->whereNotIn('id', $new)->limit(4)->get();
+        return $this->model()->latest()->where('status', $status)->whereNotIn('id', $new)->with('category')->limit(4)->get();
     }
 
     public function search($param): ?\Illuminate\Pagination\LengthAwarePaginator
