@@ -13,7 +13,7 @@
     <meta name="twitter:image" content="{{ asset($post->image800x549) }}">
 
     <!-- Facebook -->
-    <meta property="og:url" content="https://insydervoice.com">
+    <meta property="og:url" content="{{ url()->full() }}">
     <meta property="og:title" content="{{ $post->title }}">
     <meta property="og:description" content="{{ $post->title }}">
 
