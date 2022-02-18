@@ -77,7 +77,7 @@
                                                 src="{{ asset($post->user->image665x665) }}" alt="Image"
                                                 class="img-fluid"></figure>
                                         <span class="d-inline-block mt-1">By <a
-                                                href="#">{{ $post->user->name }}</a></span>
+                                                href="{{ route('authorPosts', $post->user->username) }}">{{ $post->user->name }}</a></span>
                                         <span>&nbsp;-&nbsp; @if ($post->published_at !== null)
                                                 {{ $post->published_at->format('j F Y') }}
                                             @else
