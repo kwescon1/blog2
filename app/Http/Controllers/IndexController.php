@@ -26,8 +26,6 @@ class IndexController extends Controller
 
         $lastFourPosts = $this->postService->getlastFourPosts()->toArray();
 
-        logger($firstFivePosts[2]['category']['name']);
-
         return view('frontend.index', ['firstFive' => $firstFivePosts, 'posts' => $lastFourPosts]);
     }
 
