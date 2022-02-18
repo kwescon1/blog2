@@ -162,7 +162,8 @@ bg-danger
                             src="{{ asset('assets/frontend/images/dummyIcon.png') }}" @endif
                                 alt="Image" class="img-fluid mb-5">
                             <div class="bio-body">
-                                <h3>{{ $post->user->name }}</h3>
+                                <h3><a href="{{ route('authorPosts', $post->user->username) }}">
+                                        {{ $post->user->name }}</a></h3>
                                 <p class="mb-4">{{ $post->user->mission }}</p>
                                 <p>
                                     @if ($post->user->facebook)
