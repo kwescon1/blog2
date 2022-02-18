@@ -55,6 +55,13 @@ class PostRepository extends BaseRepository implements PostRepositoryInterface
         })->latest()->paginate(6);
     }
 
+    public function getByAuthor($name, $status): ?\Illuminate\Pagination\LengthAwarePaginator
+    {
+        return $this->model()->where('status', $status)->whereHas('user', function ($q) use ($name) {
+            $q->where('username', $name);
+        })->with('category')->latest()->paginate(6);
+    }
+
     public function getBySlug($slug): ?object
     {
         // return $this->model()->whereIn('status', [1, 2])->where('slug', $slug)->first();

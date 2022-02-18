@@ -19,6 +19,9 @@ interface PostRepositoryInterface
     public function allPosts(): ?Collection;
 
     public function getByCategory($name, $status): ?\Illuminate\Pagination\LengthAwarePaginator;
+
+    public function getByAuthor($name, $status): ?\Illuminate\Pagination\LengthAwarePaginator;
+
     public function getBySlug($slug): ?object;
     public function getRecentPostsIndexPage($status): ?Collection;
     public function getRecentPosts($slug, $status): ?Collection;

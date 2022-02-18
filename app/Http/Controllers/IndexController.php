@@ -5,14 +5,16 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Resources\PostResource;
 use App\Modules\Post\Contracts\PostServiceInterface;
+use App\Modules\User\Contracts\UserServiceInterface;
 use App\Modules\Category\Contracts\CategoryServiceInterface;
 
 class IndexController extends Controller
 {
-    public function __construct(CategoryServiceInterface $categoryService, PostServiceInterface $postService)
+    public function __construct(CategoryServiceInterface $categoryService, PostServiceInterface $postService, UserServiceInterface $userService)
     {
         $this->categoryService = $categoryService;
         $this->postService = $postService;
+        $this->userService = $userService;
     }
     /**
      * Display a listing of the resource.
@@ -57,6 +59,15 @@ class IndexController extends Controller
         $relatedPosts = $this->postService->getRelatedPosts($post)->toArray();
 
         return view('frontend.detail', ['post' => $post, 'recentPosts' => $recentPosts, 'relatedPosts' => $relatedPosts]);
+    }
+
+    public function authorPosts($username)
+    {
+        $author = $this->userService->showUsername($username);
+
+        $posts = $this->postService->getPostByAuthor($username);
+
+        return view('frontend.author_posts', ['posts' => $posts, 'author' => $author]);
     }
 
     /**

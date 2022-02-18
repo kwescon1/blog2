@@ -31,6 +31,9 @@ interface PostServiceInterface
     public function changeStatus($id, $status): string;
 
     public function getPostByCategory($name): ?\Illuminate\Pagination\LengthAwarePaginator;
+
+    public function getPostByAuthor($name): ?\Illuminate\Pagination\LengthAwarePaginator;
+
     public function getPostBySlug($slug): ?object;
 
     public function getRecentPosts($slug): ?Collection;

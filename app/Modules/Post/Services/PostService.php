@@ -12,15 +12,17 @@ use App\Modules\Post\Contracts\PostServiceInterface;
 use App\Modules\Tag\Contracts\TagRepositoryInterface;
 use App\Modules\Post\Contracts\PostRepositoryInterface;
 use App\Modules\Category\Contracts\CategoryRepositoryInterface;
+use App\Modules\User\Contracts\UserRepositoryInterface;
 
 class PostService extends CoreService implements PostServiceInterface
 {
 
-    public function __construct(PostRepositoryInterface $postRepository, TagRepositoryInterface $tagRepository, CategoryRepositoryInterface $categoryRepository)
+    public function __construct(PostRepositoryInterface $postRepository, TagRepositoryInterface $tagRepository, CategoryRepositoryInterface $categoryRepository, UserRepositoryInterface $userRepository)
     {
         $this->postRepository = $postRepository;
         $this->tagRepository = $tagRepository;
         $this->categoryRepository = $categoryRepository;
+        $this->userRepository = $userRepository;
     }
 
     public function store(array $data): ?Model
@@ -208,6 +210,8 @@ class PostService extends CoreService implements PostServiceInterface
         return;
     }
 
+
+
     public function getPostByCategory($name): ?\Illuminate\Pagination\LengthAwarePaginator
     {
         //abort if !exist cat
@@ -218,6 +222,18 @@ class PostService extends CoreService implements PostServiceInterface
         }
         // cache this
         return $this->postRepository->getByCategory($name, self::STATUS_PUBLISHED);
+    }
+
+    public function getPostByAuthor($username): ?\Illuminate\Pagination\LengthAwarePaginator
+    {
+        //abort if !exist user
+        $author = $this->userRepository->model()->where('username', $username)->first();
+
+        if (!$author) {
+            abort(404);
+        }
+        // cache this
+        return $this->postRepository->getByAuthor($username, self::STATUS_PUBLISHED);
     }
 
     public function getPostBySlug($slug): ?object
