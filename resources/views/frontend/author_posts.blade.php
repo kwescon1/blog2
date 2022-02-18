@@ -48,11 +48,11 @@
                                             bg-danger
                                         @break
 
-                                        @case('TECH')
+                                        @case('TECHNOLOGY')
                                         bg-secondary
                                     @break
 
-                                    @case('FINANCE')
+                                    @case('NEWS')
                                         bg-success
                                     @break
 
