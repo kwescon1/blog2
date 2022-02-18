@@ -23,7 +23,7 @@
 
                 <div class="col-md-4">
                     @isset($firstFive[0])
-                        <a href="{{ route('details', $posts[0]['slug']) }}" class="h-entry mb-30 v-height gradient"
+                        <a href="{{ route('details', $firstFive[0]['slug']) }}" class="h-entry mb-30 v-height gradient"
                             style="background-image: url({{ url($firstFive[0]['image800x549']) }});">
 
                             <div class="text">
