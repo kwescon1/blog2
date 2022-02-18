@@ -89,15 +89,26 @@ class UserService extends CoreService implements UserServiceInterface
         return $this->userRepository->find($id);
     }
 
+    public function showUsername($username): ?string
+    {
+        $user = $this->userRepository->model()->where('username', $username)->first();
+
+        if (!$user) {
+            abort(404);
+        }
+
+        return $user->name;
+    }
+
     public function updateProfile($data): ?Model
     {
 
-        if(isset($data['image'])){
+        if (isset($data['image'])) {
             $path = $this->processImage($data['image'], "users", ["665x665"]);
 
             $data['image665x665'] = $path[0];
         }
-        
+
 
         return $this->userRepository->update(auth()->user()->id, $data);
     }
