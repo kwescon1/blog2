@@ -25,8 +25,8 @@
                 <div class="col-md-6">
                     {{-- <span>Category</span> --}}
                     <h3>{{ $data['category'] }}</h3>
-                    <p>We bring you the best in {{ strtolower($data['category']) }} news. Sit back as we educate you on
-                        latest trends with our well articulated articles.</p>
+                    <p>We bring you the best in {{ strtolower($data['category']) }}. Sit back as we educate and inform you
+                        on latest trends with our well articulated articles.</p>
                 </div>
             </div>
         </div>
@@ -45,8 +45,7 @@
                                     <span
                                         class="post-category text-white 
                                 
-                                @switch($data['category'])
-                                    @case('SPORTS')
+                                @switch($data['category']) @case('SPORTS')
                                             bg-danger
                                         @break
 
@@ -67,9 +66,7 @@
                                     @break
 
                                     @default
-                                    bg-warning
-                                        
-                                @endswitch
+                                    bg-warning @endswitch
                                 
                                 
                                 mb-3">{{ $data['category'] }}</span>
