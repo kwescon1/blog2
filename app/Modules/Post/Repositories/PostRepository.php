@@ -63,11 +63,11 @@ class PostRepository extends BaseRepository implements PostRepositoryInterface
 
     public function getRecentPostsIndexPage($status): ?Collection
     {
-        //posts should not be in posts of get posts for index page
+        //posts should not be in posts of first five or last four for index page
 
-        $ids = $this->getPosts($status)->pluck('id');
+        $ids = $this->getFirstFivePosts($status)->pluck('id');
 
-        return $this->model()->latest()->where('status', $status)->whereNotIn('id', $ids)->limit(18)->get();
+        return $this->model()->latest()->where('status', $status)->whereNotIn('id', $ids)->limit(11)->get();
     }
 
     public function getRecentPosts($slug, $status): ?Collection
@@ -79,16 +79,28 @@ class PostRepository extends BaseRepository implements PostRepositoryInterface
     {
         return $this->model()->inRandomOrder()->with('category')->where('status', $status)->where('slug', '!=', $post->slug)->whereHas('tags', function ($q) use ($post) {
             $q->whereIn('name', $post->tags->pluck('name'));
-        })->limit(4)->get();
+        })->limit(3)->get();
 
         //try where cateory
     }
 
 
-    //get first 9 records for home page
-    public function getPosts($status): ?Collection
+    //get first 5 records for home page header
+    public function getFirstFivePosts($status): ?Collection
     {
-        return $this->model()->latest()->where('status', $status)->with('category')->limit(9)->get();
+        return $this->model()->latest()->where('status', $status)->with('category')->limit(4)->get();
+    }
+
+    //get last 4 records for home page footer
+    public function getLastFourPosts($status): ?Collection
+    {
+        $ids = $this->getFirstFivePosts($status)->pluck('id');
+
+        $ids2 = $this->getRecentPostsIndexPage($status)->pluck('id');
+
+        $new = $ids->merge($ids2);
+
+        return $this->model()->latest()->where('status', $status)->whereNotIn('id', $new)->limit(3)->get();
     }
 
     public function search($param): ?\Illuminate\Pagination\LengthAwarePaginator

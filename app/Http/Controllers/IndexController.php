@@ -22,9 +22,13 @@ class IndexController extends Controller
 
     public function index()
     {
-        $posts = $this->postService->getPosts()->toArray();
+        $firstFivePosts = $this->postService->getFirstFivePosts()->toArray();
 
-        return view('frontend.index', ['posts' => $posts]);
+        $lastFourPosts = $this->postService->getlastFourPosts()->toArray();
+
+        // logger($lastFourPosts);
+
+        return view('frontend.index', ['firstFive' => $firstFivePosts, 'posts' => $lastFourPosts]);
     }
 
     public function recent()

@@ -14,22 +14,23 @@
 @endsection
 
 @section('style')
-<link rel="stylesheet" href="{{ asset('assets/frontend/css/banner.css') }}">@endsection
+    <link rel="stylesheet" href="{{ asset('assets/frontend/css/banner.css') }}">
+@endsection
 @section('content')
     <div class="site-section bg-light">
         <div class="container">
             <div class="row align-items-stretch retro-layout-2">
 
                 <div class="col-md-4">
-                    @isset($posts[0])
+                    @isset($firstFive[0])
                         <a href="{{ route('details', $posts[0]['slug']) }}" class="h-entry mb-30 v-height gradient"
-                            style="background-image: url({{ url($posts[0]['image800x549']) }});">
+                            style="background-image: url({{ url($firstFive[0]['image800x549']) }});">
 
                             <div class="text">
-                                <h2>{{ $posts[0]['title'] }}</h2>
+                                <h2>{{ $firstFive[0]['title'] }}</h2>
                                 <span class="date">
-                                    @if ($posts[0]['published_at'] !== null)
-                                        {{ Carbon\Carbon::parse($posts[0]['published_at'])->format('j F Y') }}
+                                    @if ($firstFive[0]['published_at'] !== null)
+                                        {{ Carbon\Carbon::parse($firstFive[0]['published_at'])->format('j F Y') }}
                                     @else
                                         -
                                     @endif
@@ -37,15 +38,15 @@
                             </div>
                         </a>
                     @endisset
-                    @isset($posts[1])
-                        <a href="{{ route('details', $posts[1]['slug']) }}" class="h-entry mb-30 v-height gradient"
-                            style="background-image: url({{ url($posts[1]['image800x549']) }});">
+                    @isset($firstFive[1])
+                        <a href="{{ route('details', $firstFive[1]['slug']) }}" class="h-entry mb-30 v-height gradient"
+                            style="background-image: url({{ url($firstFive[1]['image800x549']) }});">
 
                             <div class="text">
-                                <h2>{{ $posts[1]['title'] }}</h2>
+                                <h2>{{ $firstFive[1]['title'] }}</h2>
                                 <span class="date">
-                                    @if ($posts[1]['published_at'] !== null)
-                                        {{ Carbon\Carbon::parse($posts[1]['published_at'])->format('j F Y') }}
+                                    @if ($firstFive[1]['published_at'] !== null)
+                                        {{ Carbon\Carbon::parse($firstFive[1]['published_at'])->format('j F Y') }}
                                     @else
                                         -
                                     @endif
@@ -55,20 +56,20 @@
                     @endisset
                 </div>
 
-                @isset($posts[2])
+                @isset($firstFive[2])
                     <div class="col-md-4">
-                        <a href="{{ route('details', $posts[2]['slug']) }}" class="h-entry img-5 h-100 gradient"
-                            style="background-image: url({{ url($posts[2]['image800x1166']) }});">
+                        <a href="{{ route('details', $firstFive[2]['slug']) }}" class="h-entry img-5 h-100 gradient"
+                            style="background-image: url({{ url($firstFive[2]['image800x1166']) }});">
 
                             <div class="text">
                                 <div class="post-categories mb-3">
                                     {{-- <span class="post-category bg-danger">Travel</span> --}}
-                                    <span class="post-category bg-primary">{{ $posts[2]['category']['name'] }}</span>
+                                    <span class="post-category bg-primary">{{ $firstFive[2]['category']['name'] }}</span>
                                 </div>
-                                <h2>{{ $posts[2]['title'] }}</h2>
+                                <h2>{{ $firstFive[2]['title'] }}</h2>
                                 <span class="date">
-                                    @if ($posts[2]['published_at'] !== null)
-                                        {{ Carbon\Carbon::parse($posts[2]['published_at'])->format('j F Y') }}
+                                    @if ($firstFive[2]['published_at'] !== null)
+                                        {{ Carbon\Carbon::parse($firstFive[2]['published_at'])->format('j F Y') }}
                                     @else
                                         -
                                     @endif
@@ -78,15 +79,15 @@
                     </div>
                 @endisset
                 <div class="col-md-4">
-                    @isset($posts[3])
-                        <a href="{{ route('details', $posts[3]['slug']) }}" class="h-entry mb-30 v-height gradient"
-                            style="background-image: url({{ url($posts[3]['image800x549']) }});">
+                    @isset($firstFive[3])
+                        <a href="{{ route('details', $firstFive[3]['slug']) }}" class="h-entry mb-30 v-height gradient"
+                            style="background-image: url({{ url($firstFive[3]['image800x549']) }});">
 
                             <div class="text">
-                                <h2>{{ $posts[3]['title'] }}</h2>
+                                <h2>{{ $firstFive[3]['title'] }}</h2>
                                 <span class="date">
-                                    @if ($posts[3]['published_at'] !== null)
-                                        {{ Carbon\Carbon::parse($posts[3]['published_at'])->format('j F Y') }}
+                                    @if ($firstFive[3]['published_at'] !== null)
+                                        {{ Carbon\Carbon::parse($firstFive[3]['published_at'])->format('j F Y') }}
                                     @else
                                         -
                                     @endif
@@ -94,15 +95,15 @@
                             </div>
                         </a>
                     @endisset
-                    @isset($posts[4])
-                        <a href="{{ route('details', $posts[4]['slug']) }}" class="h-entry mb-30 v-height gradient"
-                            style="background-image: url({{ url($posts[4]['image800x549']) }});">
+                    @isset($firstFive[4])
+                        <a href="{{ route('details', $firstFive[4]['slug']) }}" class="h-entry mb-30 v-height gradient"
+                            style="background-image: url({{ url($firstFive[4]['image800x549']) }});">
 
                             <div class="text">
-                                <h2>{{ $posts[4]['title'] }}</h2>
+                                <h2>{{ $firstFive[4]['title'] }}</h2>
                                 <span class="date">
-                                    @if ($posts[4]['published_at'] !== null)
-                                        {{ Carbon\Carbon::parse($posts[1]['published_at'])->format('j F Y') }}
+                                    @if ($firstFive[4]['published_at'] !== null)
+                                        {{ Carbon\Carbon::parse($firstFive[1]['published_at'])->format('j F Y') }}
                                     @else
                                         -
                                     @endif
@@ -166,17 +167,17 @@
         <div class="container">
 
             <div class="row align-items-stretch retro-layout">
-                @isset($posts[5])
+                @isset($posts[0])
                     <div class="col-md-5 order-md-2">
-                        <a href="{{ route('details', $posts[5]['slug']) }}" class="hentry img-1 h-100 gradient"
-                            style="background-image: url({{ url($posts[5]['image800x1166']) }});">
-                            <span class="post-category text-white bg-danger">{{ $posts[5]['category']['name'] }}</span>
+                        <a href="{{ route('details', $posts[0]['slug']) }}" class="hentry img-1 h-100 gradient"
+                            style="background-image: url({{ url($posts[0]['image800x1166']) }});">
+                            <span class="post-category text-white bg-danger">{{ $posts[0]['category']['name'] }}</span>
 
                             <div class="text">
-                                <h2>{{ $posts[5]['title'] }}</h2>
+                                <h2>{{ $posts[0]['title'] }}</h2>
                                 <span class="date">
-                                    @if ($posts[5]['published_at'] !== null)
-                                        {{ Carbon\Carbon::parse($posts[5]['published_at'])->format('j F Y') }}
+                                    @if ($posts[0]['published_at'] !== null)
+                                        {{ Carbon\Carbon::parse($posts[0]['published_at'])->format('j F Y') }}
                                     @else
                                         -
                                     @endif
@@ -188,15 +189,15 @@
                 @endisset
 
                 <div class="col-md-7">
-                    @isset($posts[6])
-                        <a href="{{ route('details', $posts[6]['slug']) }}" class="hentry img-2 v-height mb30 gradient"
-                            style="background-image: url({{ url($posts[6]['image800x549']) }});">
-                            <span class="post-category text-white bg-success">{{ $posts[6]['category']['name'] }}</span>
+                    @isset($posts[1])
+                        <a href="{{ route('details', $posts[1]['slug']) }}" class="hentry img-2 v-height mb30 gradient"
+                            style="background-image: url({{ url($posts[1]['image800x549']) }});">
+                            <span class="post-category text-white bg-success">{{ $posts[1]['category']['name'] }}</span>
                             <div class="text text-sm">
-                                <h2>{{ $posts[6]['title'] }}</h2>
+                                <h2>{{ $posts[1]['title'] }}</h2>
                                 <span>
-                                    @if ($posts[6]['published_at'] !== null)
-                                        {{ Carbon\Carbon::parse($posts[6]['published_at'])->format('j F Y') }}
+                                    @if ($posts[1]['published_at'] !== null)
+                                        {{ Carbon\Carbon::parse($posts[1]['published_at'])->format('j F Y') }}
                                     @else
                                         -
                                     @endif
@@ -206,16 +207,16 @@
                     @endisset
 
                     <div class="two-col d-block d-md-flex">
-                        @isset($posts[7])
-                            <a href="{{ route('details', $posts[7]['slug']) }}" class="hentry v-height img-2 gradient"
-                                style="background-image: url({{ url($posts[7]['image800x549']) }});">
-                                <span class="post-category text-white bg-primary">{{ $posts[7]['category']['name'] }}</span>
+                        @isset($posts[2])
+                            <a href="{{ route('details', $posts[2]['slug']) }}" class="hentry v-height img-2 gradient"
+                                style="background-image: url({{ url($posts[2]['image800x549']) }});">
+                                <span class="post-category text-white bg-primary">{{ $posts[2]['category']['name'] }}</span>
 
                                 <div class="text text-sm">
-                                    <h2>{{ $posts[7]['title'] }}</h2>
+                                    <h2>{{ $posts[2]['title'] }}</h2>
                                     <span class="date">
-                                        @if ($posts[7]['published_at'] !== null)
-                                            {{ Carbon\Carbon::parse($posts[7]['published_at'])->format('j F Y') }}
+                                        @if ($posts[2]['published_at'] !== null)
+                                            {{ Carbon\Carbon::parse($posts[2]['published_at'])->format('j F Y') }}
                                         @else
                                             -
                                         @endif
@@ -224,17 +225,17 @@
                             </a>
                         @endisset
 
-                        @isset($posts[8])
-                            <a href="{{ route('details', $posts[8]['slug']) }}"
+                        @isset($posts[3])
+                            <a href="{{ route('details', $posts[3]['slug']) }}"
                                 class="hentry v-height img-2 ml-auto gradient"
-                                style="background-image: url({{ url($posts[8]['image800x549']) }});">
-                                <span class="post-category text-white bg-warning">{{ $posts[8]['category']['name'] }}</span>
+                                style="background-image: url({{ url($posts[3]['image800x549']) }});">
+                                <span class="post-category text-white bg-warning">{{ $posts[3]['category']['name'] }}</span>
 
                                 <div class="text text-sm">
-                                    <h2>{{ $posts[8]['title'] }}</h2>
+                                    <h2>{{ $posts[3]['title'] }}</h2>
                                     <span class="date">
-                                        @if ($posts[8]['published_at'] !== null)
-                                            {{ Carbon\Carbon::parse($posts[8]['published_at'])->format('j F Y') }}
+                                        @if ($posts[3]['published_at'] !== null)
+                                            {{ Carbon\Carbon::parse($posts[3]['published_at'])->format('j F Y') }}
                                         @else
                                             -
                                         @endif

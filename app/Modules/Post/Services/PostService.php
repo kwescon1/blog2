@@ -246,11 +246,17 @@ class PostService extends CoreService implements PostServiceInterface
         return $this->postRepository->getRelatedPosts($post, self::STATUS_PUBLISHED);
     }
 
-    //get first 9 records for homepage
-    public function getPosts(): ?Collection
+    //get first 5 records for homepage
+    public function getFirstFivePosts(): ?Collection
     {
         //cache
-        return $this->cachePost('homePage', 60 * 24 * 60, $this->postRepository->getPosts(self::STATUS_PUBLISHED));
+        return $this->cachePost('homePage', 60 * 24 * 60, $this->postRepository->getFirstFivePosts(self::STATUS_PUBLISHED));
+    }
+
+    public function getLastFourPosts(): ?Collection
+    {
+        //cache
+        return $this->cachePost('homePage', 60 * 24 * 60, $this->postRepository->getLastFourPosts(self::STATUS_PUBLISHED));
     }
 
     private function cachePost($cacheKey, $duration, $query)

@@ -39,5 +39,6 @@ interface PostServiceInterface
 
     public function getRecentPostsIndexPage(): ?Collection;
 
-    public function getPosts(): ?Collection;
+    public function getFirstFivePosts(): ?Collection;
+    public function getLastFourPosts(): ?Collection;
 }

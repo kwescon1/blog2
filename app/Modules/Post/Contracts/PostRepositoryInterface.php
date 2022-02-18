@@ -25,7 +25,8 @@ interface PostRepositoryInterface
 
     public function getRelatedPosts($post, $status): ?Collection;
 
-    public function getPosts($status): ?Collection;
+    public function getFirstFivePosts($status): ?Collection;
+    public function getLastFourPosts($status): ?Collection;
 
     public function search($param): ?\Illuminate\Pagination\LengthAwarePaginator;
 }
