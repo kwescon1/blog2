@@ -1,33 +1,40 @@
 @extends('frontend.layout.app_layout')
 
 @section('meta')
-    <meta name="keywords" content="                                                     
-                                                @foreach ($post->tags as $tag)
-    {{ $tag->name }},
-    @endforeach"
-    />
-    <meta name="author" content="{{ $post->user->name }}">
-    <meta name="title" content="{{ $post->title }}">
-    <meta property="og:image" content="{{ asset($post->image800x549) }}" />
     {{-- <meta name="robots" content="index" /> --}}
     <meta property="og:image:secure_url" content="{{ asset($post->image800x549) }}" />
 
     <!-- Twitter -->
-    {{-- <meta name="twitter:card" content="summary_large_image"> --}}
-    {{-- </meta> --}}
-    {{-- <meta name="twitter:site" content="@themepixels"> --}}
-    {{-- <meta name="twitter:creator" content="@__kwesiKod "> --}}
+    <meta name="twitter:site" content="@__kwesiKod">
+    <meta name="twitter:creator" content="@__kwesiKod">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ $post->title }}">
+    <meta name="twitter:description" content="{{ $post->title }}">
+    <meta name="twitter:image" content="{{ asset($post->image800x549) }}">
 
-    {{-- <meta name="twitter:title" content=""> --}}
-    {{-- <meta name="twitter:description" content="{{ $post->title }}">
-    <meta name="twitter:image" content="{{ asset($post->image800x549) }}"> --}}
+    <!-- Facebook -->
+    <meta property="og:url" content="https://insydervoice.com">
+    <meta property="og:title" content="{{ $post->title }}">
+    <meta property="og:description" content="{{ $post->title }}">
+
+    <meta property="og:image" content="{{ asset($post->image800x549) }}">
+    <meta property="og:image:secure_url" content="{{ asset($post->image800x549) }}">
+    <meta property="og:image:type" content="image">
+    {{-- <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="600"> --}}
+
+    <!-- Meta -->
+    <meta name="description" content="{{ $post->title }}">
+    <meta name="author" content="{{ $post->user->name }}">
+    <meta name="keywords" content="@foreach ($post->tags as $tag) {{ $tag->name }}, @endforeach" />
 @endsection
 
 @section('title')
     {{ $post->title }}
 @endsection
 @section('style')
-<link rel="stylesheet" href="{{ asset('assets/frontend/css/banner.css') }}">@endsection
+    <link rel="stylesheet" href="{{ asset('assets/frontend/css/banner.css') }}">
+@endsection
 
 @section('content')
 
@@ -42,8 +49,7 @@
                         <span
                             class="post-category text-white 
                                 
-                                @switch($post->category->name)
-                                    @case('SPORTS')
+                                @switch($post->category->name) @case('SPORTS')
 bg-danger
 @break
 
@@ -64,21 +70,18 @@ bg-danger
 @break
 
                                     @default
-                                    bg-warning
-                                        
-                                @endswitch
+                                    bg-warning @endswitch
                                 
                                 
                                 mb-3">{{ $post->category->name }}</span>
 
                         <h1 class="mb-4"><a href="#">{{ $post->title }}</a></h1>
                         <div class="post-meta align-items-center text-center">
-                            <figure class="author-figure mb-0 mr-3 d-inline-block"><img @if ($post->user->image665x665)
-                                src="{{ asset($post->user->image665x665) }}"
+                            <figure class="author-figure mb-0 mr-3 d-inline-block"><img
+                                    @if ($post->user->image665x665) src="{{ asset($post->user->image665x665) }}"
                             @else
-                                src="{{ asset('assets/frontend/images/dummyIcon.png') }}"
-                                @endif
-                                alt="Image" class="img-fluid">
+                                src="{{ asset('assets/frontend/images/dummyIcon.png') }}" @endif
+                                    alt="Image" class="img-fluid">
                             </figure>
                             <span class="d-inline-block mt-1">By {{ $post->user->name }}</span>
                             <span>&nbsp;-&nbsp; @if ($post->published_at !== null)
@@ -108,7 +111,9 @@ bg-danger
                     <div class="pt-5">
                         <p>Category: <a
                                 href="{{ route('category', $post->category->name) }}">{{ ucfirst(strtolower($post->category->name)) }}</a>
-                            Tags:@foreach ($post->tags as $tag) <a href="#">#{{ $tag->name }}</a>, @endforeach </p>
+                            Tags:@foreach ($post->tags as $tag)
+                                <a href="#">#{{ $tag->name }}</a>,
+                            @endforeach </p>
                     </div>
 
                     <div class="pt-5">
@@ -152,12 +157,10 @@ bg-danger
                     <!-- END sidebar-box -->
                     <div class="sidebar-box">
                         <div class="bio text-center">
-                            <img @if ($post->user->image665x665)
-                            src="{{ asset($post->user->image665x665) }}"
+                            <img @if ($post->user->image665x665) src="{{ asset($post->user->image665x665) }}"
                         @else
-                            src="{{ asset('assets/frontend/images/dummyIcon.png') }}"
-                            @endif
-                            alt="Image" class="img-fluid mb-5">
+                            src="{{ asset('assets/frontend/images/dummyIcon.png') }}" @endif
+                                alt="Image" class="img-fluid mb-5">
                             <div class="bio-body">
                                 <h3>{{ $post->user->name }}</h3>
                                 <p class="mb-4">{{ $post->user->mission }}</p>
@@ -386,7 +389,6 @@ bg-danger
                 @else
 
                     <h3> No related post</h3>
-
                 @endif
             </div>
 
