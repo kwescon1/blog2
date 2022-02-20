@@ -112,7 +112,9 @@
                         <li><a href="#">Advertise</a></li>
                         <li><a href="{{ route('contactUs') }}">Contact us</a></li>
                         <li><a href="#">Subscribes</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a
+                                href="https://www.privacypolicygenerator.info/live.php?token=idS3VNoIXDPrvbWVYTUuhNb9LG5kh0RB">Privacy
+                                Policy</a></li>
                     </ul>
                     <ul class="list-unstyled float-left">
                         @foreach ($index->cats() as $category)
