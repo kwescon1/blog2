@@ -23,12 +23,18 @@
               <a :href="`post/${post.slug}`">{{ post.title }}</a>
             </h2>
             <div class="post-meta align-items-center text-left clearfix">
-              <figure class="author-figure mb-0 mr-3 float-left">
+              <figure
+                v-if="post.user.image"
+                class="author-figure mb-0 mr-3 float-left"
+              >
                 <img
                   :src="`${post.user.image}`"
                   alt="Image"
                   class="img-fluid"
                 />
+              </figure>
+              <figure v-else class="author-figure mb-0 mr-3 float-left">
+                <img :src="`${profileImage}`" alt="Image" class="img-fluid" />
               </figure>
               <span class="d-inline-block mt-1"
                 >By <a href="#">{{ post.user.name }}</a></span
@@ -82,6 +88,10 @@ export default {
   computed: {
     baseUrl: function () {
       return "https://insydervoice.com";
+    },
+
+    profileImage: function () {
+      return "https://insydervoice.com/assets/frontend/images/dummyIcon.png";
     },
   },
 
