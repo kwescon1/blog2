@@ -84,9 +84,7 @@ class PostRepository extends BaseRepository implements PostRepositoryInterface
 
     public function getRelatedPosts($post, $status): ?Collection
     {
-        return $this->model()->inRandomOrder()->with('category')->where('status', $status)->where('slug', '!=', $post->slug)->whereHas('tags', function ($q) use ($post) {
-            $q->whereIn('name', $post->tags->pluck('name'));
-        })->orWhereHas('category', function ($w) use ($post) {
+        return $this->model()->inRandomOrder()->with('category')->where('status', $status)->where('slug', '!=', $post->slug)->whereHas('category', function ($w) use ($post) {
             $w->where('name', $post->category->name);
         })->limit(4)->get();
 
