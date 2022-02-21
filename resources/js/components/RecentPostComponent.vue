@@ -42,7 +42,7 @@
               <span>&nbsp;-&nbsp; {{ post.published_at }}</span>
             </div>
 
-            <p v-html="post.content"></p>
+            <!-- <p v-html="post.content"></p> -->
             <p><a :href="`post/${post.slug}`">Read More</a></p>
           </div>
         </div>

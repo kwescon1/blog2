@@ -27,7 +27,7 @@ class PostResource extends JsonResource
             "title" =>  $this->title,
             "slug" => $this->slug,
             "image800x549" => $this->image800x549,
-            "content" => \Illuminate\Support\Str::limit($this->content, 50, $end = '....'),
+            // "content" => \Illuminate\Support\Str::limit($this->content, 50, $end = '....'),
             "published_at" => $published_at,
         ];
     }
