@@ -74,8 +74,8 @@
                                     <h2><a href="{{ route('details', $post->slug) }}">{{ $post->title }}</a></h2>
                                     <div class="post-meta align-items-center text-left clearfix">
                                         <figure class="author-figure mb-0 mr-3 float-left"><img
-                                                src="{{ asset($post->user->image665x665) }}" alt="Image"
-                                                class="img-fluid"></figure>
+                                                src="@if ($post->user->image665x665) {{ asset($post->user->image665x665) }} @else {{ asset('assets/frontend/images/dummyIcon.png') }} @endif"
+                                                alt="Image" class="img-fluid"></figure>
                                         <span class="d-inline-block mt-1">By <a
                                                 href="{{ route('authorPosts', $post->user->username) }}">{{ $post->user->name }}</a></span>
                                         <span>&nbsp;-&nbsp; @if ($post->published_at !== null)
