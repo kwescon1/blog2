@@ -97,4 +97,6 @@ Route::get('author-posts/{username}', [\App\Http\Controllers\IndexController::cl
 
 
 // 
-// Route::get('test', [\App\Http\Controllers\NotificationController::class, 'contactUs']);
+Route::get('privacy-policy', function () {
+    return view('frontend.privacy_policy');
+})->name('privacy-policy');
