@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes(['register' => false, 'login' => false]);
 
-Route::get('panel/admin/insydervoice', [App\Http\Controllers\Auth\LoginController::class, 'showLoginForm']);
+Route::get('panel/admin/insydervoice', [App\Http\Controllers\Auth\LoginController::class, 'showLoginForm'])->name('signin');
 
 Route::post('loginUser', [App\Http\Controllers\Auth\LoginController::class, 'login'])->name('login');
 
