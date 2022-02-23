@@ -68,7 +68,7 @@
                     </div>
 
                     <div class="col-4 site-logo">
-                        <a href="{{ route('frontendHome') }}" class="text-black h2 mb-0">INSYDERVOICE</a>
+                        <a href="{{ route('frontendHome') }}" class="text-black h2 mb-0">InsyderVoice</a>
                     </div>
                     @inject('index', 'App\Http\Controllers\JustCategoryController')
                     <div class="col-8 text-right">
@@ -76,7 +76,7 @@
                             <ul class="site-menu js-clone-nav mr-auto d-none d-lg-block mb-0">
                                 @foreach ($index->cats() as $category)
                                     <li><a
-                                            href="{{ route('category', $category->name) }}">{{ $category->name }}</a>
+                                            href="{{ route('category', $category->name) }}">{{ ucfirst(strtolower($category->name)) }}</a>
                                     </li>
                                 @endforeach
                                 <li class="d-none d-lg-inline-block"><a href="#searchForm" data-target="#searchForm"
