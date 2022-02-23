@@ -141,10 +141,10 @@
                                 <div class="form-group">
                                     <textarea required id="summernote" name="content"
                                         class="form-control @error('content') is-invalid @enderror">
-                                                                                                                                                                        @if ($data['type'] == 'EDIT POST')
+                                                                                                                                                                            @if ($data['type'] == 'EDIT POST')
     {{ $data['post']->content }}
     @endif
-                                                                                                                                                                    </textarea>
+                                                                                                                                                                        </textarea>
 
                                     @error('content')
                                         <span class="invalid-feedback" role="alert">
@@ -155,32 +155,19 @@
 
                                 {{-- post summary --}}
                                 <div class="form-group">
-                                    <textarea required id="description" name="content"
-                                        class="form-control @error('content') is-invalid @enderror">
-                                                                                                                                                                        @if ($data['type'] == 'EDIT POST')
+                                    <textarea required id="description" name="description" placeholder="Post Summary"
+                                        class="form-control @error('description') is-invalid @enderror">
+                                             @if ($data['type'] == 'EDIT POST')
     {{ $data['post']->description }}
     @endif
-                                                                                                                                                                    </textarea>
+                                                                                                                                                                        </textarea>
 
-                                    @error('content')
+                                    @error('description')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
                                     @enderror
                                 </div>
-
-                                <div class="form-group">
-                                    <textarea id="description" placeholder=" Post Summary" type="text"
-                                        class="form-control @error('title') is-invalid @enderror" name="description"
-                                        required autofocus
-                                        @if ($data['type'] == 'EDIT POST') value="{{ $data['post']->description }}" @endif>
-
-                                                @error('description')
-        <span class="invalid-feedback" role="alert">
-                                                                    <strong>{{ $message }}</strong>
-                                                                </span>
-    @enderror </textarea>
-                                </div><!-- form-group -->
 
                                 <button type="submit" class="btn btn-primary">
 
