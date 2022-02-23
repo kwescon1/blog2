@@ -24,6 +24,7 @@
     <meta property="og:image:height" content="600"> --}}
 
     <!-- Meta -->
+    <meta name="robots" content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large" />
     <meta name="description" content="{{ $post->description }}">
     <meta name="author" content="{{ $post->user->name }}">
     <meta name="keywords" content="@foreach ($post->tags as $tag) {{ $tag->name }}, @endforeach" />
