@@ -5,7 +5,6 @@
 @section('summernote')
     <link href="{{ asset('assets/backend/lib/highlightjs/github.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/backend/lib/summernote/summernote-bs4.css') }}" rel="stylesheet">
-
 @endsection
 
 @section('content')
@@ -37,12 +36,10 @@
                         </div>
 
                         <div class="card-body">
-                            <form enctype="multipart/form-data" @if ($data['type'] == 'EDIT POST')
-                                action="{{ route($data['route_name']['route'], $data['route_name']['id']) }}"
+                            <form enctype="multipart/form-data"
+                                @if ($data['type'] == 'EDIT POST') action="{{ route($data['route_name']['route'], $data['route_name']['id']) }}"
                             @else
-                                action="{{ route($data['route_name']) }}"
-                                @endif
-
+                                action="{{ route($data['route_name']) }}" @endif
                                 method="POST">
 
                                 @csrf
@@ -53,7 +50,8 @@
                                 <div class="form-group">
                                     <input id="title" placeholder=" Title" type="text"
                                         class="form-control @error('title') is-invalid @enderror" name="title" required
-                                        autocomplete="title" autofocus @if ($data['type'] == 'EDIT POST') value="{{ $data['post']->title }}" @endif>
+                                        autocomplete="title" autofocus
+                                        @if ($data['type'] == 'EDIT POST') value="{{ $data['post']->title }}" @endif>
 
                                     @error('title')
                                         <span class="invalid-feedback" role="alert">
@@ -67,7 +65,8 @@
                                     <select id="category" class="form-control @error('category_id') is-invalid @enderror"
                                         name="category_id">
                                         @foreach ($data['categories'] as $category)
-                                            <option @if ($data['type'] == 'EDIT POST' && $data['post']->category->id == $category->id) selected @endif value="{{ $category->id }}">
+                                            <option @if ($data['type'] == 'EDIT POST' && $data['post']->category->id == $category->id) selected @endif
+                                                value="{{ $category->id }}">
                                                 {{ $category->name }}</option>
                                         @endforeach
                                     </select>
@@ -82,9 +81,8 @@
                                 <div class="form-group">
                                     <input id="tags" placeholder=" Tags. Separate with comma(,)" type="text"
                                         class="form-control @error('tags') is-invalid @enderror" name="tags" required
-                                        @if ($data['type'] == 'EDIT POST')
-                                    value="{{ $data['post']->tags->pluck('name')->implode(',') }}" {
-                                    @endif autofocus>
+                                        @if ($data['type'] == 'EDIT POST') value="{{ $data['post']->tags->pluck('name')->implode(',') }}" { @endif
+                                        autofocus>
 
                                     @error('tags')
                                         <span class="invalid-feedback" role="alert">
@@ -100,8 +98,8 @@
                                     <div class="col-md-12">
 
                                         <input id="" type="file" accept="image/*" onchange="loadFile(event)"
-                                            class=" @error('image') is-invalid @enderror" @if ($data['type'] == 'NEW POST') required @endif
-                                            name="image">
+                                            class=" @error('image') is-invalid @enderror"
+                                            @if ($data['type'] == 'NEW POST') required @endif name="image">
 
                                         @error('image')
                                             <span class="invalid-feedback" role="alert">
@@ -117,7 +115,8 @@
                                         class="col-md-12 col-form-label">{{ __('Image Preview') }}</label>
 
                                     <div class="col-md-12">
-                                        <img @if ($data['type'] == 'EDIT POST')src="{{ asset($data['post']->image800x549) }}"@endif width="400" height="400" id="output" />
+                                        <img @if ($data['type'] == 'EDIT POST') src="{{ asset($data['post']->image800x549) }}" @endif
+                                            width="400" height="400" id="output" />
                                     </div>
                                 </div>
 
@@ -142,10 +141,10 @@
                                 <div class="form-group">
                                     <textarea required id="summernote" name="content"
                                         class="form-control @error('content') is-invalid @enderror">
-                                                                                                                                                        @if ($data['type'] == 'EDIT POST') 
-                                                                                                                                                            {{ $data['post']->content }}
-                                                                                                                                                        @endif                                                            
-                                                                                                                                                    </textarea>
+                                                                                                                                                            @if ($data['type'] == 'EDIT POST')
+    {{ $data['post']->content }}
+    @endif
+                                                                                                                                                        </textarea>
 
                                     @error('content')
                                         <span class="invalid-feedback" role="alert">
@@ -153,6 +152,19 @@
                                         </span>
                                     @enderror
                                 </div>
+
+                                <div class="form-group">
+                                    <input id="description" placeholder=" Post Summary" type="text"
+                                        class="form-control @error('title') is-invalid @enderror" name="description"
+                                        required autocomplete="description" autofocus
+                                        @if ($data['type'] == 'EDIT POST') value="{{ $data['post']->description }}" @endif>
+
+                                    @error('description')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div><!-- form-group -->
 
                                 <button type="submit" class="btn btn-primary">
 
@@ -166,7 +178,6 @@
             </div>
         </div>
     </div>
-
 @endsection
 
 @section('scripts')
@@ -210,5 +221,4 @@
             })
         });
     </script>
-
 @endsection

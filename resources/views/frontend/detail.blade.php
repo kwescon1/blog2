@@ -9,13 +9,13 @@
     <meta name="twitter:creator" content="@__kwesiKod">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="{{ $post->title }}">
-    <meta name="twitter:description" content="{{ $post->title }}">
+    <meta name="twitter:description" content="{{ $post->description }}">
     <meta name="twitter:image" content="{{ asset($post->image800x549) }}">
 
     <!-- Facebook -->
     <meta property="og:url" content="{{ url()->full() }}">
     <meta property="og:title" content="{{ $post->title }}">
-    <meta property="og:description" content="{{ $post->title }}">
+    <meta property="og:description" content="{{ $post->description }}">
 
     <meta property="og:image" content="{{ asset($post->image800x549) }}">
     <meta property="og:image:secure_url" content="{{ asset($post->image800x549) }}">
@@ -24,7 +24,7 @@
     <meta property="og:image:height" content="600"> --}}
 
     <!-- Meta -->
-    <meta name="description" content="{{ $post->title }}">
+    <meta name="description" content="{{ $post->description }}">
     <meta name="author" content="{{ $post->user->name }}">
     <meta name="keywords" content="@foreach ($post->tags as $tag) {{ $tag->name }}, @endforeach" />
 @endsection
@@ -113,7 +113,8 @@ bg-danger
                                 href="{{ route('category', $post->category->name) }}">{{ ucfirst(strtolower($post->category->name)) }}</a>
                             Tags:@foreach ($post->tags as $tag)
                                 <a href="#">#{{ $tag->name }}</a>,
-                            @endforeach </p>
+                            @endforeach
+                        </p>
                     </div>
 
                     <div class="pt-5">

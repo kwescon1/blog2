@@ -33,7 +33,7 @@ class UpdatePostRequest extends FormRequest
 
                 Rule::unique('posts')->ignore($post->title, 'title'),
             ],
-            // 'title' => 'required|unique:posts,title,' . $this->title,
+            'description' => 'required|string',
             'category_id' => 'required|not_in:0',
             'tags' => 'required',
             'image' => 'image|nullable',
