@@ -119,7 +119,7 @@
                                 <label class="form-control-label">Mission: </label>
                                 <textarea rows="10" class="form-control @error('mission') is-invalid @enderror"
                                     name="mission" autofocus>
-                                            {{ trim($user->missio) }}</textarea>
+                                                {{ trim($user->mission) }}</textarea>
                                 @error('mission')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
