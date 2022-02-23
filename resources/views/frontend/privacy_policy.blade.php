@@ -10,7 +10,7 @@
             <div class="row same-height justify-content-center">
                 <div class="col-md-12 col-lg-10">
                     <div class="post-entry text-center">
-                        <h1 class="">Privacy Policy for Insydervoice</h1>
+                        <h1 class="">Privacy Policy for InsyderVoice</h1>
                         <p class="lead mb-4 text-white"></p>
                         <br><br><br><br>
                     </div>
@@ -22,7 +22,7 @@
 
     <div class="site-section bg-light">
         <div class="container">
-            <p>At Insydervoice, accessible from <a href="https://www.insydervoice.com/">https://www.insydervoice.com/</a>,
+            <p>At InsyderVoice, accessible from <a href="https://www.insydervoice.com/">https://www.insydervoice.com/</a>,
                 one of our main priorities is the privacy of
                 our visitors. This Privacy Policy document contains types of information that is collected and recorded by
                 Insydervoice and how we use it.</p>
