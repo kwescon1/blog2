@@ -25,7 +25,8 @@
             @endif
             <div class="form-layout">
 
-                <form enctype="multipart/form-data" method="POST" action="{{ route('edit.profile', auth()->user()->id) }}">
+                <form enctype="multipart/form-data" method="POST"
+                    action="{{ route('edit.profile', auth()->user()->id) }}">
                     @csrf
                     <div class="row mg-b-25">
                         <div class="col-lg-4">
@@ -117,7 +118,8 @@
                             <div class="form-group">
                                 <label class="form-control-label">Mission: </label>
                                 <textarea rows="10" class="form-control @error('mission') is-invalid @enderror"
-                                    name="mission" autofocus></textarea>
+                                    name="mission" autofocus>
+                                        {{ $user->mission }}</textarea>
                                 @error('mission')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
