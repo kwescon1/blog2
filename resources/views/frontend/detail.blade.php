@@ -279,7 +279,7 @@ bg-danger
                     @endif
                     <!-- END sidebar-box -->
 
-                    @include('frontend.partials.categories_partial')
+                    {{-- @include('frontend.partials.categories_partial') --}}
                     <!-- END sidebar-box -->
 
                     <div class="sidebar-box">
