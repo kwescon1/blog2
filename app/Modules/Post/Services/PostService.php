@@ -203,7 +203,7 @@ class PostService extends CoreService implements PostServiceInterface
     {
         $post = $this->show($id);
 
-        Gate::authorize('delete', $post);
+        Gate::authorize('forceDelete', $post);
 
         $this->postRepository->destroy($id);
 
