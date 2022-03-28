@@ -48,6 +48,10 @@ class PostRepository extends BaseRepository implements PostRepositoryInterface
         return;
     }
 
+    public function findSoftDeletedPost($id):? object{
+       return $this->model()->withTrashed()->find($id);
+    }
+
     public function getByCategory($name, $status): ?\Illuminate\Pagination\LengthAwarePaginator
     {
         return $this->model()->where('status', $status)->whereHas('category', function ($q) use ($name) {

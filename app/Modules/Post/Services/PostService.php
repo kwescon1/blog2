@@ -201,7 +201,7 @@ class PostService extends CoreService implements PostServiceInterface
 
     public function destroy($id): void
     {
-        $post = $this->show($id);
+        $post = $this->postRepository->findSoftDeletedPost($id);
 
         Gate::authorize('forceDelete', $post);
 

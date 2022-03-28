@@ -14,6 +14,8 @@ interface PostRepositoryInterface
 
     public function destroy($id): void;
 
+    public function findSoftDeletedPost($id):? object;
+
     public function restorePost($id): void;
 
     public function allPosts(): ?Collection;
