@@ -405,6 +405,9 @@ bg-danger
 @endsection
 
 @section('scripts')
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6297431891068563"
+        crossorigin="anonymous"></script>
+        
     <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
     <script>

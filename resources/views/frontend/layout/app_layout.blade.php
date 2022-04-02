@@ -23,11 +23,6 @@
 
     <link rel="stylesheet" href="{{ asset('assets/frontend/css/style.css') }}">
     @yield('style')
-
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6297431891068563"
-        crossorigin="anonymous"></script>
-
-
 </head>
 
 <body>
@@ -129,11 +124,11 @@
                     <div>
                         <h4 style="font-size:20px;" class="footer-heading mb-4">Connect With Us</h4>
                         <p>
-                            <a href="#"><span class="icon-facebook pt-2 pr-2 pb-2 pl-0"></span></a>
-                            <a href="#"><span class="icon-twitter p-2"></span></a>
+                            <a href="mailto:info@insydervoice.com"><span class="icon-envelope p-2"></span></a>
+                            <a href="https://twitter.com/insydervoice"><span class="icon-twitter p-2"></span></a>
                             <a href="#"><span class="icon-instagram p-2"></span></a>
+                            <a href="#"><span class="icon-facebook pt-2 pr-2 pb-2 pl-0"></span></a>
                             <a href="#"><span class="icon-rss p-2"></span></a>
-                            <a href="#"><span class="icon-envelope p-2"></span></a>
                         </p>
                     </div>
                 </div>

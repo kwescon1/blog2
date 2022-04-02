@@ -254,3 +254,8 @@
 
     @include('frontend.layout.partials.news_letter')
 @endsection
+
+@section('scripts')
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6297431891068563"
+        crossorigin="anonymous"></script>
+@endsection
