@@ -5,8 +5,8 @@
     <meta property="og:image:secure_url" content="{{ asset($post->image800x549) }}" />
 
     <!-- Twitter -->
-    <meta name="twitter:site" content="@__kwesiKod">
-    <meta name="twitter:creator" content="@__kwesiKod">
+    <meta name="twitter:site" content="@insydervoice">
+    <meta name="twitter:creator" content="@insydervoice">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="{{ $post->title }}">
     <meta name="twitter:description" content="{{ $post->description }}">
@@ -407,7 +407,7 @@ bg-danger
 @section('scripts')
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6297431891068563"
         crossorigin="anonymous"></script>
-        
+
     <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
     <script>

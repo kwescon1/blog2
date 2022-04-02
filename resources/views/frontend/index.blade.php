@@ -8,8 +8,10 @@
     <meta name="description" content="Home of quality content">
     <meta property="og:image" content="{{ asset('assets/storage/logo/logo_1_50_1_496x300.jpeg') }}" />
     <meta property="og:image:secure_url" content="{{ asset('assets/storage/logo/logo_1_50_1_496x300.jpeg') }}" />
-    {{-- <meta property="og:image:type" content="image/jpeg" /> --}}
-    {{-- <meta property="og:image:width" content="800" />
+    <meta name="robots" content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large" />
+    <meta property="og:url" content="{{ url()->full() }}">
+    <meta property="og:description" content="Home of quality content">
+    <meta property="og:image:type" content="image">
     <meta property="og:image:height" content="549" /> --}}
 @endsection
 
