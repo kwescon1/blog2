@@ -12,7 +12,6 @@
     <meta property="og:url" content="{{ url()->full() }}">
     <meta property="og:description" content="Home of quality content">
     <meta property="og:image:type" content="image">
-    <meta property="og:image:height" content="549" /> --}}
 @endsection
 
 @section('style')
